@@ -1,0 +1,1030 @@
+/* switch bottom css */
+/* simplescreenrecorder */
+/* on */
+.switch--shadow-simplescreenrecorder + label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-simplescreenrecorder + label:before,
+.switch--shadow-simplescreenrecorder + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-simplescreenrecorder + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-simplescreenrecorder + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-simplescreenrecorder:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-simplescreenrecorder:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-simplescreenrecorder + label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-simplescreenrecorder + label:before,
+.switch--shadow2-simplescreenrecorder + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-simplescreenrecorder + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-simplescreenrecorder + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-simplescreenrecorder:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-simplescreenrecorder:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* simplescreenrecorder-on/off text */
+.simplescreenrecorder-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.simplescreenrecorder-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* lightworks */
+/* on */
+.switch--shadow-lightworks+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-lightworks + label:before,
+.switch--shadow-lightworks + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-lightworks + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-lightworks + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-lightworks:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-lightworks:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-lightworks+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-lightworks + label:before,
+.switch--shadow2-lightworks + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-lightworks + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-lightworks + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-lightworks:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-lightworks:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* lightworks-on/off text */
+.lightworks-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.lightworks-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* kdenlive */
+/* on */
+.switch--shadow-kdenlive+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-kdenlive + label:before,
+.switch--shadow-kdenlive + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-kdenlive + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-kdenlive + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-kdenlive:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-kdenlive:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-kdenlive+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-kdenlive + label:before,
+.switch--shadow2-kdenlive + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-kdenlive + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-kdenlive + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-kdenlive:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-kdenlive:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* kdenlive-on/off text */
+.kdenlive-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.kdenlive-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* openshot */
+/* on */
+.switch--shadow-openshot + label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-openshot + label:before,
+.switch--shadow-openshot + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-openshot + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-openshot + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-openshot:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-openshot:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-openshot + label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-openshot + label:before,
+.switch--shadow2-openshot + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-openshot + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-openshot + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-openshot:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-openshot:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* openshot-on/off text */
+.openshot-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.openshot-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* obs */
+/* on */
+.switch--shadow-obs+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-obs + label:before,
+.switch--shadow-obs + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-obs + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-obs + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-obs:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-obs:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-obs+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-obs + label:before,
+.switch--shadow2-obs + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-obs + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-obs + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-obs:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-obs:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* obs-on/off text */
+.obs-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.obs-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* nuke */
+/* on */
+.switch--shadow-nuke+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-nuke + label:before,
+.switch--shadow-nuke + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-nuke + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-nuke + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-nuke:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-nuke:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-nuke+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-nuke + label:before,
+.switch--shadow2-nuke + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-nuke + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-nuke + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-nuke:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-nuke:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* nuke-on/off text */
+.nuke-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.nuke-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* shotcut */
+/* on */
+.switch--shadow-shotcut+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-shotcut + label:before,
+.switch--shadow-shotcut + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-shotcut + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-shotcut + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-shotcut:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-shotcut:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-shotcut+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-shotcut + label:before,
+.switch--shadow2-shotcut + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-shotcut + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-shotcut + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-shotcut:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-shotcut:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* shotcut-on/off text */
+.shotcut-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.shotcut-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* fusionforlinux */
+/* on */
+.switch--shadow-fusionforlinux+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-fusionforlinux + label:before,
+.switch--shadow-fusionforlinux + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-fusionforlinux + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-fusionforlinux + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-fusionforlinux:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-fusionforlinux:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-fusionforlinux+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-fusionforlinux + label:before,
+.switch--shadow2-fusionforlinux + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-fusionforlinux + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-fusionforlinux + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-fusionforlinux:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-fusionforlinux:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* fusionforlinux-on/off text */
+.fusionforlinux-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.fusionforlinux-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* davinci-resolve */
+/* on */
+.switch--shadow-davinci-resolve+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-davinci-resolve + label:before,
+.switch--shadow-davinci-resolve + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-davinci-resolve + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-davinci-resolve + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-davinci-resolve:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-davinci-resolve:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-davinci-resolve+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-davinci-resolve + label:before,
+.switch--shadow2-davinci-resolve + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-davinci-resolve + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-davinci-resolve + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-davinci-resolve:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-davinci-resolve:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* davinci-resolve-on/off text */
+.davinci-resolve-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.davinci-resolve-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* natron */
+/* on */
+.switch--shadow-natron+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-natron + label:before,
+.switch--shadow-natron + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-natron + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-natron + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-natron:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-natron:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-natron+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-natron + label:before,
+.switch--shadow2-natron + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-natron + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-natron + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-natron:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-natron:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* natron-on/off text */
+.natron-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.natron-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}

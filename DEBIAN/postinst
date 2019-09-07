@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+
+chown root:root /etc/sudoers.d/sudoers-prime-settings
+chmod 600 /etc/sudoers.d/sudoers-prime-settings
+
+# Fix for files folder
+if test -e /tmp/regataos-prime ; then
+	cd /tmp/
+	chmod 777 regataos-prime
+else
+	cd /tmp/
+	mkdir -p regataos-prime
+	chmod 777 regataos-prime
+fi
+
+# Fix regataosprime executable
+if test -e /opt/magma/regataosprime ; then
+	echo "OK"
+else
+	cp -f /opt/magma/magma /opt/magma/regataosprime
+fi
+
+if test -e /usr/bin/regataosprime ; then
+	echo "OK"
+else
+	ln -s /opt/magma/regataosprime /usr/bin/regataosprime
+fi
+
+if test -e /usr/bin/prime-dgpu ; then
+	echo "OK"
+else
+	ln -s /usr/bin/regataos-dgpu /usr/bin/prime-dgpu
+fi
+
+sudo /usr/bin/prime-settings-system-info.sh start
+
+if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
+	# Open apps with hybrid graphics manually
+	if test -e /usr/share/kservices5/ServiceMenus ; then
+		cp -f /usr/share/regataos/gpu/prime/prime-gpu.desktop /usr/share/kservices5/ServiceMenus/prime-gpu.desktop
+	fi
+
+	# desktop file for prime settings
+	cp -f /usr/share/regataos/gpu/prime/prime-settings.desktop /usr/share/applications/prime-settings.desktop
+fi
+
+systemctl enable  detect-hybrid-graphics.service || true
+systemctl stop    detect-hybrid-graphics.service || true
+systemctl start   detect-hybrid-graphics.service || true
+systemctl restart detect-hybrid-graphics.service || true
+
+systemctl enable  regataos-check-use-dgpu.service || true
+systemctl stop    regataos-check-use-dgpu.service || true
+systemctl start   regataos-check-use-dgpu.service || true
+systemctl restart regataos-check-use-dgpu.service || true
+
+# systemctl enable  apps-hybrid-graphics-service.service || true
+# systemctl stop    apps-hybrid-graphics-service.service || true
+# systemctl start   apps-hybrid-graphics-service.service || true
+# systemctl restart apps-hybrid-graphics-service.service || true
+
+update-desktop-database

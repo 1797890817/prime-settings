@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PRIME Settings</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style-buttom-all/buttom-switch-all-apps.css">
+	<link rel="stylesheet" type="text/css" href="css/style-buttom-switch/buttom-switch-games.css">
+	<link rel="stylesheet" type="text/css" href="css/style-buttom-switch/buttom-switch-photo.css">
+	<link rel="stylesheet" type="text/css" href="css/style-buttom-switch/buttom-switch-modeling3d.css">
+	<link rel="stylesheet" type="text/css" href="css/style-buttom-switch/buttom-switch-video-editor.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/update-css.js"></script>
+	<script type="text/javascript" src="js/check-apps/all-apps.js"></script>
+	<script type="text/javascript" src="js/check-apps/all-apps-reload.js"></script>
+	<script type="text/javascript" src="js/check-apps/games.js"></script>
+	<script type="text/javascript" src="js/check-apps/3dmodeling.js"></script>
+	<script type="text/javascript" src="js/check-apps/photo.js"></script>
+	<script type="text/javascript" src="js/check-apps/video-editor.js"></script>
+	<script type="text/javascript" src="js/actions-apps/games.js"></script>
+	<script type="text/javascript" src="js/actions-apps/3dmodeling.js"></script>
+	<script type="text/javascript" src="js/actions-apps/photo.js"></script>
+	<script type="text/javascript" src="js/actions-apps/video-editor.js"></script>
+	<script type="text/javascript" src="js/actions-apps/all-apps.js"></script>
+								<!-- js pages -->
+	<script type="text/javascript" src="js/check-apps/prime-settings.js"></script>
+</head>
+<body>
+
+	<div class="div1">
+		<div id="title" class="hdiv1">PRIME Settings</div>
+		<p class="pdiv1">Escolha quais aplicativos devem ser executados com a GPU dedicada do seu dispositivo.</p>
+	</div>
+
+	<div class="all-apps">
+		<div class="text-all-apps">Desativar para todos os aplicativos</div><div class="switch__container2">
+			<input id="switch-shadow-all-apps" class="switch switch--shadow-all-apps" type="checkbox" onclick="click_all();">
+			<label for="switch-shadow-all-apps"></label></div>
+	</div>
+
+	<div class="all-apps2">
+		<div class="text-all-apps">Ativar para todos os aplicativos</div><div class="switch__container2">
+			<input id="switch-shadow2-all-apps" class="switch switch--shadow2-all-apps" type="checkbox" onclick="click_all2();">
+			<label for="switch-shadow2-all-apps"></label></div>
+	</div>
+
+	<div class="div2">
+
+		<ul class="apps-bottom">
+			<!-- Games -->
+			<li id="steam">
+				<div class="icone-app" style="background-image:url(images/icon-apps/steam.png);"></div>
+				<div class="text-app">Steam</div><div class="switch__container">
+					<input id="switch-shadow-steam" class="switch switch--shadow-steam" type="checkbox" onclick="steam();">
+					<label for="switch-shadow-steam"></label></div><div class="switch__container">
+					<input id="switch-shadow2-steam" class="switch switch--shadow2-steam" type="checkbox" onclick="steam();">
+					<label for="switch-shadow2-steam"></label></div><span class='steam-on'>Alta performance</span><span class='steam-off'>Economia de energia</span>
+			</li>
+			<li id="pcsx2">
+				<div class="icone-app" style="background-image:url(images/icon-apps/pcsx2.png);"></div>
+				<div class="text-app">PCSX2</div><div class="switch__container">
+					<input id="switch-shadow-pcsx2" class="switch switch--shadow-pcsx2" type="checkbox" onclick="pcsx2();">
+					<label for="switch-shadow-pcsx2"></label></div><div class="switch__container">
+					<input id="switch-shadow2-pcsx2" class="switch switch--shadow2-pcsx2" type="checkbox" onclick="pcsx2();">
+					<label for="switch-shadow2-pcsx2"></label></div><span class='pcsx2-on'>Alta performance</span><span class='pcsx2-off'>Economia de energia</span>
+			</li>
+			<li id="dolphin-emu">
+				<div class="icone-app" style="background-image:url(images/icon-apps/dolphin-emu.png);"></div>
+				<div class="text-app">Dolphin Emulator</div><div class="switch__container">
+					<input id="switch-shadow-dolphin-emu" class="switch switch--shadow-dolphin-emu" type="checkbox" onclick="dolphin_emu();">
+					<label for="switch-shadow-dolphin-emu"></label></div><div class="switch__container">
+					<input id="switch-shadow2-dolphin-emu" class="switch switch--shadow2-dolphin-emu" type="checkbox" onclick="dolphin_emu();">
+					<label for="switch-shadow2-dolphin-emu"></label></div><span class='dolphin-emu-on'>Alta performance</span><span class='dolphin-emu-off'>Economia de energia</span>
+			</li>
+			<li id="supertuxkart">
+				<div class="icone-app" style="background-image:url(images/icon-apps/supertuxkart.png);"></div>
+				<div class="text-app">SuperTuxKart</div><div class="switch__container">
+					<input id="switch-shadow-supertuxkart" class="switch switch--shadow-supertuxkart" type="checkbox" onclick="supertuxkart();">
+					<label for="switch-shadow-supertuxkart"></label></div><div class="switch__container">
+					<input id="switch-shadow2-supertuxkart" class="switch switch--shadow2-supertuxkart" type="checkbox" onclick="supertuxkart();">
+					<label for="switch-shadow2-supertuxkart"></label></div><span class='supertuxkart-on'>Alta performance</span><span class='supertuxkart-off'>Economia de energia</span>
+			</li>
+			<!-- Photo -->
+			<li id="gimp">
+				<div class="icone-app" style="background-image:url(images/icon-apps/gimp.png);"></div>
+				<div class="text-app">GIMP</div><div class="switch__container">
+					<input id="switch-shadow-gimp" class="switch switch--shadow-gimp" type="checkbox" onclick="gimp();">
+					<label for="switch-shadow-gimp"></label></div><div class="switch__container">
+					<input id="switch-shadow2-gimp" class="switch switch--shadow2-gimp" type="checkbox" onclick="gimp();">
+					<label for="switch-shadow2-gimp"></label></div><span class='gimp-on'>Alta performance</span><span class='gimp-off'>Economia de energia</span>
+			</li>
+			<li id="darktable">
+				<div class="icone-app" style="background-image:url(images/icon-apps/darktable.png);"></div>
+				<div class="text-app">Darktable</div><div class="switch__container">
+					<input id="switch-shadow-darktable" class="switch switch--shadow-darktable" type="checkbox" onclick="darktable();">
+					<label for="switch-shadow-darktable"></label></div><div class="switch__container">
+					<input id="switch-shadow2-darktable" class="switch switch--shadow2-darktable" type="checkbox" onclick="darktable();">
+					<label for="switch-shadow2-darktable"></label></div><span class='darktable-on'>Alta performance</span><span class='darktable-off'>Economia de energia</span>
+			</li>
+			<li id="inkscape">
+				<div class="icone-app" style="background-image:url(images/icon-apps/inkscape.png);"></div>
+				<div class="text-app">Inkscape</div><div class="switch__container">
+					<input id="switch-shadow-inkscape" class="switch switch--shadow-inkscape" type="checkbox" onclick="inkscape();">
+					<label for="switch-shadow-inkscape"></label></div><div class="switch__container">
+					<input id="switch-shadow2-inkscape" class="switch switch--shadow2-inkscape" type="checkbox" onclick="inkscape();">
+					<label for="switch-shadow2-inkscape"></label></div><span class='inkscape-on'>Alta performance</span><span class='inkscape-off'>Economia de energia</span>
+			</li>
+			<li id="krita">
+				<div class="icone-app" style="background-image:url(images/icon-apps/krita.png);"></div>
+				<div class="text-app">Krita</div><div class="switch__container">
+					<input id="switch-shadow-krita" class="switch switch--shadow-krita" type="checkbox" onclick="krita();">
+					<label for="switch-shadow-krita"></label></div><div class="switch__container">
+					<input id="switch-shadow2-krita" class="switch switch--shadow2-krita" type="checkbox" onclick="krita();">
+					<label for="switch-shadow2-krita"></label></div><span class='krita-on'>Alta performance</span><span class='krita-off'>Economia de energia</span>
+			</li>
+			<li id="aftershot">
+				<div class="icone-app" style="background-image:url(images/icon-apps/aftershot.png);"></div>
+				<div class="text-app">AfterShot Pro</div><div class="switch__container">
+					<input id="switch-shadow-aftershot" class="switch switch--shadow-aftershot" type="checkbox" onclick="aftershot();">
+					<label for="switch-shadow-aftershot"></label></div><div class="switch__container">
+					<input id="switch-shadow2-aftershot" class="switch switch--shadow2-aftershot" type="checkbox" onclick="aftershot();">
+					<label for="switch-shadow2-aftershot"></label></div><span class='aftershot-on'>Alta performance</span><span class='aftershot-off'>Economia de energia</span>
+			</li>
+			<li id="gravit-designer">
+				<div class="icone-app" style="background-image:url(images/icon-apps/gravit-designer.png);"></div>
+				<div class="text-app">Gravit Designer</div><div class="switch__container">
+					<input id="switch-shadow-gravit-designer" class="switch switch--shadow-gravit-designer" type="checkbox" onclick="gravit_designer();">
+					<label for="switch-shadow-gravit-designer"></label></div><div class="switch__container">
+					<input id="switch-shadow2-gravit-designer" class="switch switch--shadow2-gravit-designer" type="checkbox" onclick="gravit_designer();">
+					<label for="switch-shadow2-gravit-designer"></label></div><span class='gravit-designer-on'>Alta performance</span><span class='gravit-designer-off'>Economia de energia</span>
+			</li>
+			<!-- 3d modeling -->
+			<li id="blender">
+				<div class="icone-app" style="background-image:url(images/icon-apps/blender.png);"></div>
+				<div class="text-app">Blender</div><div class="switch__container">
+					<input id="switch-shadow-blender" class="switch switch--shadow-blender" type="checkbox" onclick="blender();">
+					<label for="switch-shadow-blender"></label></div><div class="switch__container">
+					<input id="switch-shadow2-blender" class="switch switch--shadow2-blender" type="checkbox" onclick="blender();">
+					<label for="switch-shadow2-blender"></label></div><span class='blender-on'>Alta performance</span><span class='blender-off'>Economia de energia</span>
+			</li>
+			<!-- video editor -->
+			<li id="simplescreenrecorder">
+				<div class="icone-app" style="background-image:url(images/icon-apps/simplescreenrecorder.png);"></div>
+				<div class="text-app1">SimpleScreenRecorder</div><div class="text-app2">SimpleScreenR...</div><div class="switch__container">
+					<input id="switch-shadow-simplescreenrecorder" class="switch switch--shadow-simplescreenrecorder" type="checkbox" onclick="simplescreenrecorder();">
+					<label for="switch-shadow-simplescreenrecorder"></label></div><div class="switch__container">
+					<input id="switch-shadow2-simplescreenrecorder" class="switch switch--shadow2-simplescreenrecorder" type="checkbox" onclick="simplescreenrecorder();">
+					<label for="switch-shadow2-simplescreenrecorder"></label></div><span class='simplescreenrecorder-on'>Alta performance</span><span class='simplescreenrecorder-off'>Economia de energia</span>
+			</li>
+			<li id="lightworks">
+				<div class="icone-app" style="background-image:url(images/icon-apps/lightworks.png);"></div>
+				<div class="text-app">Lightworks</div><div class="switch__container">
+					<input id="switch-shadow-lightworks" class="switch switch--shadow-lightworks" type="checkbox" onclick="lightworks();">
+					<label for="switch-shadow-lightworks"></label></div><div class="switch__container">
+					<input id="switch-shadow2-lightworks" class="switch switch--shadow2-lightworks" type="checkbox" onclick="lightworks();">
+					<label for="switch-shadow2-lightworks"></label></div><span class='lightworks-on'>Alta performance</span><span class='lightworks-off'>Economia de energia</span>
+			</li>
+			<li id="kdenlive">
+				<div class="icone-app" style="background-image:url(images/icon-apps/kdenlive.png);"></div>
+				<div class="text-app">Kdenlive</div><div class="switch__container">
+					<input id="switch-shadow-kdenlive" class="switch switch--shadow-kdenlive" type="checkbox" onclick="kdenlive();">
+					<label for="switch-shadow-kdenlive"></label></div><div class="switch__container">
+					<input id="switch-shadow2-kdenlive" class="switch switch--shadow2-kdenlive" type="checkbox" onclick="kdenlive();">
+					<label for="switch-shadow2-kdenlive"></label></div><span class='kdenlive-on'>Alta performance</span><span class='kdenlive-off'>Economia de energia</span>
+			</li>
+			<li id="openshot">
+				<div class="icone-app" style="background-image:url(images/icon-apps/openshot.png);"></div>
+				<div class="text-app">OpenShot</div><div class="switch__container">
+					<input id="switch-shadow-openshot" class="switch switch--shadow-openshot" type="checkbox" onclick="openshot();">
+					<label for="switch-shadow-openshot"></label></div><div class="switch__container">
+					<input id="switch-shadow2-openshot" class="switch switch--shadow2-openshot" type="checkbox" onclick="openshot();">
+					<label for="switch-shadow2-openshot"></label></div><span class='openshot-on'>Alta performance</span><span class='openshot-off'>Economia de energia</span>
+			</li>
+			<li id="obs">
+				<div class="icone-app" style="background-image:url(images/icon-apps/obs.png);"></div>
+				<div class="text-app">OBS Studio</div><div class="switch__container">
+					<input id="switch-shadow-obs" class="switch switch--shadow-obs" type="checkbox" onclick="obs();">
+					<label for="switch-shadow-obs"></label></div><div class="switch__container">
+					<input id="switch-shadow2-obs" class="switch switch--shadow2-obs" type="checkbox" onclick="obs();">
+					<label for="switch-shadow2-obs"></label></div><span class='obs-on'>Alta performance</span><span class='obs-off'>Economia de energia</span>
+			</li>
+			<li id="nuke">
+				<div class="icone-app" style="background-image:url(images/icon-apps/nuke.png);"></div>
+				<div class="text-app">Nuke</div><div class="switch__container">
+					<input id="switch-shadow-nuke" class="switch switch--shadow-nuke" type="checkbox" onclick="nuke();">
+					<label for="switch-shadow-nuke"></label></div><div class="switch__container">
+					<input id="switch-shadow2-nuke" class="switch switch--shadow2-nuke" type="checkbox" onclick="nuke();">
+					<label for="switch-shadow2-nuke"></label></div><span class='nuke-on'>Alta performance</span><span class='nuke-off'>Economia de energia</span>
+			</li>
+			<li id="shotcut">
+				<div class="icone-app" style="background-image:url(images/icon-apps/shotcut.png);"></div>
+				<div class="text-app">Shotcut</div><div class="switch__container">
+					<input id="switch-shadow-shotcut" class="switch switch--shadow-shotcut" type="checkbox" onclick="shotcut();">
+					<label for="switch-shadow-shotcut"></label></div><div class="switch__container">
+					<input id="switch-shadow2-shotcut" class="switch switch--shadow2-shotcut" type="checkbox" onclick="shotcut();">
+					<label for="switch-shadow2-shotcut"></label></div><span class='shotcut-on'>Alta performance</span><span class='shotcut-off'>Economia de energia</span>
+			</li>
+			<li id="fusionforlinux">
+				<div class="icone-app" style="background-image:url(images/icon-apps/fusionforlinux.png);"></div>
+				<div class="text-app">Fusion</div><div class="switch__container">
+					<input id="switch-shadow-fusionforlinux" class="switch switch--shadow-fusionforlinux" type="checkbox" onclick="fusionforlinux();">
+					<label for="switch-shadow-fusionforlinux"></label></div><div class="switch__container">
+					<input id="switch-shadow2-fusionforlinux" class="switch switch--shadow2-fusionforlinux" type="checkbox" onclick="fusionforlinux();">
+					<label for="switch-shadow2-fusionforlinux"></label></div><span class='fusionforlinux-on'>Alta performance</span><span class='fusionforlinux-off'>Economia de energia</span>
+			</li>
+			<li id="davinci-resolve">
+				<div class="icone-app" style="background-image:url(images/icon-apps/davinci-resolve.png);"></div>
+				<div class="text-app">DaVinci Resolve</div><div class="switch__container">
+					<input id="switch-shadow-davinci-resolve" class="switch switch--shadow-davinci-resolve" type="checkbox" onclick="davinci_resolve();">
+					<label for="switch-shadow-davinci-resolve"></label></div><div class="switch__container">
+					<input id="switch-shadow2-davinci-resolve" class="switch switch--shadow2-davinci-resolve" type="checkbox" onclick="davinci_resolve();">
+					<label for="switch-shadow2-davinci-resolve"></label></div><span class='davinci-resolve-on'>Alta performance</span><span class='davinci-resolve-off'>Economia de energia</span>
+			</li>
+			<li id="natron">
+				<div class="icone-app" style="background-image:url(images/icon-apps/natron.png);"></div>
+				<div class="text-app">Natron</div><div class="switch__container">
+					<input id="switch-shadow-natron" class="switch switch--shadow-natron" type="checkbox" onclick="natron();">
+					<label for="switch-shadow-natron"></label></div><div class="switch__container">
+					<input id="switch-shadow2-natron" class="switch switch--shadow2-natron" type="checkbox" onclick="natron();">
+					<label for="switch-shadow2-natron"></label></div><span class='natron-on'>Alta performance</span><span class='natron-off'>Economia de energia</span>
+			</li>
+			<li id="separator1">
+			</li>
+		</ul>
+	</div>
+
+	<div class="div3">
+		<ul id="menu">
+			<a href="index.html">
+			<li id="apps">
+				<div class="icone-menu" style="background-image:url(images/apps2.png);"></div><p class="p-menu">Aplicativos</p>
+			</li>
+			</a>
+			<a href="p/settings.html">
+			<li id="settings2">
+				<div class="icone-menu" style="background-image:url(images/settings3.png);"></div><p class="p-menu">Configurações</p>
+			</li>
+			</a>
+			<a href="p/system.html">
+			<li id="system2">
+				<div class="icone-menu" style="background-image:url(images/system2.png);"></div><p class="p-menu">Sistema</p>
+			</li>
+			</a>
+		</ul>
+	</div>
+
+</body>
+</html>

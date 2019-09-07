@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo /usr/share/regataos/gpu/prime/apps-hybrid-graphics start
+
+dir_scripts=/opt/regataos-prime/scripts
+
+$dir_scripts/all-apps-files.sh; regataosprime /opt/regataos-prime

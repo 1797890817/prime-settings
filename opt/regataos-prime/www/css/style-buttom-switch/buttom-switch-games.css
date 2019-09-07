@@ -1,0 +1,412 @@
+/* switch bottom css */
+/* steam */
+/* buttom-on */
+.switch--shadow-steam + label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-steam + label:before,
+.switch--shadow-steam + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-steam + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-steam + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-steam:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-steam:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* buttom-off */
+.switch--shadow2-steam + label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-steam + label:before,
+.switch--shadow2-steam + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-steam + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-steam + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-steam:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-steam:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* steam-on/off text */
+.steam-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.steam-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* pcsx2 */
+/* on */
+.switch--shadow-pcsx2+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-pcsx2 + label:before,
+.switch--shadow-pcsx2 + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-pcsx2 + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-pcsx2 + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-pcsx2:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-pcsx2:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-pcsx2+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-pcsx2 + label:before,
+.switch--shadow2-pcsx2 + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-pcsx2 + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-pcsx2 + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-pcsx2:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-pcsx2:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* pcsx2-on/off text */
+.pcsx2-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.pcsx2-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* dolphin-emu */
+/* on */
+.switch--shadow-dolphin-emu+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-dolphin-emu + label:before,
+.switch--shadow-dolphin-emu + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-dolphin-emu + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-dolphin-emu + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-dolphin-emu:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-dolphin-emu:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-dolphin-emu+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-dolphin-emu + label:before,
+.switch--shadow2-dolphin-emu + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-dolphin-emu + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-dolphin-emu + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-dolphin-emu:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-dolphin-emu:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* dolphin-emu-on/off text */
+.dolphin-emu-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.dolphin-emu-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+/* supertuxkart */
+/* on */
+.switch--shadow-supertuxkart+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-supertuxkart + label:before,
+.switch--shadow-supertuxkart + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-supertuxkart + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-supertuxkart + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-supertuxkart:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-supertuxkart:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-supertuxkart+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-supertuxkart + label:before,
+.switch--shadow2-supertuxkart + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-supertuxkart + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-supertuxkart + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-supertuxkart:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-supertuxkart:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* supertuxkart-on/off text */
+.supertuxkart-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.supertuxkart-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}

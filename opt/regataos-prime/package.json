@@ -1,0 +1,14 @@
+{
+  "name": "PRIME Settings",
+  "description": "PRIME Settings",
+  "version": "0.1.0",
+  "main": "www/index.html",
+  "inject_js_start": "www/js/jquery.min.js",
+  "inject_js_end": "www/js/update-css.js",
+  "window": {
+    "toolbar": false,
+    "width": 1360,
+    "height": 950,
+    "icon": "www/images/icon.png"
+  }
+}

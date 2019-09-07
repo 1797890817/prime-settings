@@ -1,0 +1,124 @@
+#!/bin/bash
+
+# Disable the Hybrid Graphics Automatic feature for all applications.
+kmsg=$(users | cut -d ' ' -f 1)
+echo $kmsg
+
+test -f "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs" && source "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs"
+DESKTOP_DIR="${XDG_DESKTOP_DIR:-/home/$kmsg/Desktop}"
+kmsg2=$(echo $DESKTOP_DIR | cut -d/ -f 3-)
+echo $kmsg2
+
+DESKTOP_DIR=/home/$kmsg/$kmsg2
+
+APPS_DIR=/usr/share/applications
+
+APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
+
+# Games [
+
+	# steam
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/steam.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/steam.desktop"
+
+	# pcsx2
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/PCSX2.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/PCSX2.desktop"
+
+	# dolphin-emu
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/dolphin-emu.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/dolphin-emu.desktop"
+
+	# supertuxkart
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/supertuxkart.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/supertuxkart.desktop"
+
+# }
+
+# Photo {
+
+	# gimp
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/gimp.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gimp.desktop"
+
+	# darktable
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/darktable.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/darktable.desktop"
+
+	# inkscape
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/inkscape.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/inkscape.desktop"
+
+	# krita
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/krita_*.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/org.kde.krita.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/krita_*.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/org.kde.krita.desktop"
+
+	# aftershot
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/AfterShot3X64.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/AfterShot3X64.desktop"
+
+	# gravit-designer
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/gravit-designer.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gravit-designer.desktop"
+
+# }
+
+# 3d modeling {
+
+	# blender
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/blender.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/blender.desktop"
+
+# }
+
+# video editor {
+
+	# simplescreenrecorder
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/simplescreenrecorder.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/simplescreenrecorder.desktop"
+
+	# lightworks
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/lightworks.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/lightworks.desktop"
+
+	# kdenlive
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/org.kde.kdenlive.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/org.kde.kdenlive.desktop"
+
+	# openshot
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/openshot-qt.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/openshot-qt.desktop"
+
+	# obs
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/com.obsproject.Studio.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/com.obsproject.Studio.desktop"
+
+	# nuke
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/Nuke*.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/Hiero*.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Nuke*.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Hiero*.desktop"
+
+	# shotcut
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/org.shotcut.Shotcut.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/org.shotcut.Shotcut.desktop"
+
+	# fusionforlinux
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/com.blackmagicdesign.Fusion9.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/com.blackmagicdesign.Fusion9.desktop"
+
+	# davinci-resolve
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/DaVinci*.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/DaVinci*.desktop"
+
+	# natron
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_LOCAL_DIR/Natron2.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_LOCAL_DIR/Natron2Setup.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Natron2.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Natron2Setup.desktop"
+
+# }
+
+update-desktop-database

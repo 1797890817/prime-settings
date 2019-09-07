@@ -1,0 +1,23 @@
+#!/bin/bash
+
+cd /
+
+while :
+do
+
+if test -e /tmp/regataos-prime/run-dgpu.txt ; then
+
+	if test -e /tmp/regataos-prime/using-dgpu.txt ; then
+		/opt/regataos-prime/notifications/notifications.sh start
+	fi
+
+	if test -e /tmp/regataos-prime/nvidia-driver.txt ; then
+		/opt/regataos-prime/notifications/notifications.sh start
+	fi
+
+	rm -f /tmp/regataos-prime/run-dgpu.txt
+
+fi
+
+   sleep 2
+done

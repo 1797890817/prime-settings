@@ -1,0 +1,128 @@
+#!/bin/bash
+
+# Set Vulkan to discrete GPU
+if test -e /tmp/regataos-prime/vulkan-hybrid-graphics.txt ; then
+if test -e /opt/regataos-vulkan/icd.d ; then
+
+    # Verifying that the NVIDIA driver is installed.
+    if test -e /usr/bin/nvidia-xconfig ; then
+
+        echo "NVIDIA proprietary driver detected"
+        rm -f /usr/share/vulkan/icd.d/intel_icd*
+        rm -f /usr/share/vulkan/icd.d/radeon_icd*
+        rm -f /etc/vulkan/icd.d/amd_icd64.json
+
+        # Copy nvidia_icd.json
+        if test -e /etc/vulkan/icd.d/nvidia_icd.json ; then
+            echo "nvidia_icd.json"
+        else
+            cp -f /opt/regataos-vulkan/icd.d/nvidia_icd.json /etc/vulkan/icd.d/nvidia_icd.json
+        fi
+
+    else
+
+        # Verifying that the AMD driver is installed.
+        if test -e /usr/bin/amdgpu-pro-uninstall ; then
+
+            echo "AMD proprietary driver detected"
+            rm -f /usr/share/vulkan/icd.d/intel_icd*
+            rm -f /usr/share/vulkan/icd.d/radeon_icd*
+            rm -f /etc/vulkan/icd.d/nvidia_icd.json
+
+            # Copy amd_icd64.json
+            if test -e /etc/vulkan/icd.d/amd_icd64.json ; then
+                echo "amd_icd64.json"
+            else
+                cp -f /opt/regataos-vulkan/icd.d/amd_icd64.json /etc/vulkan/icd.d/amd_icd64.json
+            fi
+
+        else
+
+            # Using the AMD open source driver.
+            kmsg=$(lspci | grep AMD)
+            echo $kmsg
+
+            if [[ $kmsg == *"AMD"* ]]; then
+                rm -f /etc/vulkan/icd.d/nvidia_icd.json
+                rm -f /etc/vulkan/icd.d/amd_icd64.json
+                rm -f /usr/share/vulkan/icd.d/intel_icd*
+
+                # Copy radeon_icd.i686.json
+                if test -e /usr/share/vulkan/icd.d/radeon_icd.i686.json ; then
+                echo "radeon_icd.i686.json OK"
+                else
+                    cp -f /opt/regataos-vulkan/icd.d/radeon_icd.i686.json /usr/share/vulkan/icd.d/radeon_icd.i686.json
+                fi
+
+                # Copy radeon_icd.x86_64.json
+                if test -e /usr/share/vulkan/icd.d/radeon_icd.x86_64.json ; then
+                    echo "radeon_icd.x86_64.json OK"
+                else
+                    cp -f /opt/regataos-vulkan/icd.d/radeon_icd.x86_64.json /usr/share/vulkan/icd.d/radeon_icd.x86_64.json
+                fi
+            fi
+        fi
+    fi
+
+else
+
+    # Set Vulkan for integrated graphics
+    kmsg=$(cat /proc/cpuinfo | grep model)
+    echo $kmsg
+
+    if [[ $kmsg == *"Intel"* ]]; then
+        rm -f /etc/vulkan/icd.d/nvidia_icd.json
+        rm -f /etc/vulkan/icd.d/amd_icd64.json
+        rm -f /usr/share/vulkan/icd.d/radeon_icd*
+
+        # Copy intel_icd.i686.json
+        if test -e /usr/share/vulkan/icd.d/intel_icd.i686.json ; then
+            echo "intel_icd.i686.json OK"
+        else
+            cp -f /opt/regataos-vulkan/icd.d/intel_icd.i686.json /usr/share/vulkan/icd.d/intel_icd.i686.json
+        fi
+
+        # Copy intel_icd.x86_64.json
+        if test -e /usr/share/vulkan/icd.d/intel_icd.x86_64.json ; then
+            echo "intel_icd.x86_64.json OK"
+        else
+            cp -f /opt/regataos-vulkan/icd.d/intel_icd.x86_64.json /usr/share/vulkan/icd.d/intel_icd.x86_64.json
+        fi
+    else
+        # Verifying that the AMD driver is installed.
+        if test -e /usr/bin/amdgpu-pro-uninstall ; then
+
+            echo "AMD proprietary driver detected"
+            rm -f /usr/share/vulkan/icd.d/intel_icd*
+            rm -f /usr/share/vulkan/icd.d/radeon_icd*
+            rm -f /etc/vulkan/icd.d/nvidia_icd.json
+
+            # Copy amd_icd64.json
+            if test -e /etc/vulkan/icd.d/amd_icd64.json ; then
+                echo "amd_icd64.json"
+            else
+                cp -f /opt/regataos-vulkan/icd.d/amd_icd64.json /etc/vulkan/icd.d/amd_icd64.json
+            fi
+
+        else
+            rm -f /etc/vulkan/icd.d/nvidia_icd.json
+            rm -f /etc/vulkan/icd.d/amd_icd64.json
+            rm -f /usr/share/vulkan/icd.d/intel_icd*
+
+            # Copy radeon_icd.i686.json
+            if test -e /usr/share/vulkan/icd.d/radeon_icd.i686.json ; then
+                echo "radeon_icd.i686.json OK"
+            else
+                cp -f /opt/regataos-vulkan/icd.d/radeon_icd.i686.json /usr/share/vulkan/icd.d/radeon_icd.i686.json
+            fi
+
+            # Copy radeon_icd.x86_64.json
+            if test -e /usr/share/vulkan/icd.d/radeon_icd.x86_64.json ; then
+                echo "radeon_icd.x86_64.json OK"
+            else
+                cp -f /opt/regataos-vulkan/icd.d/radeon_icd.x86_64.json /usr/share/vulkan/icd.d/radeon_icd.x86_64.json
+            fi
+        fi
+    fi
+fi
+fi

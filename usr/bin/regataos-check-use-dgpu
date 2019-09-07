@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cd /
+
+while :
+do
+
+# Check the current status of dGPU
+kmsg=$(cat /sys/kernel/debug/vgaswitcheroo/switch | grep DIS:)
+echo $kmsg
+
+if [[ $kmsg == *"DynPwr"* ]]; then
+
+	echo "Using dGPU to render graphs (DynPwr)"
+	echo Using dGPU > /tmp/regataos-prime/using-dgpu.txt
+
+elif [[ $kmsg == *"Pwr"* ]]; then
+
+	echo "Using dGPU to render graphs (Pwr)"
+	echo Using dGPU > /tmp/regataos-prime/using-dgpu.txt
+
+elif [[ $kmsg == *"DynOff"* ]]; then
+
+	echo "dGPU is DynOff"
+	rm -f /tmp/regataos-prime/using-dgpu.txt
+
+elif [[ $kmsg == *"Off"* ]]; then
+
+	echo "dGPU is Off"
+	rm -f /tmp/regataos-prime/using-dgpu.txt
+
+else
+
+	echo "There seems to be no hybrid graphics."
+	rm -f /tmp/regataos-prime/using-dgpu.txt
+
+fi
+
+   sleep 2
+done

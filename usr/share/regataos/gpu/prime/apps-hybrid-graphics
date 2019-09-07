@@ -1,0 +1,622 @@
+#!/bin/bash
+
+# Check for hybrid graphics
+if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
+
+if test -e /tmp/regataos-prime/noapps-hybrid-graphics.txt ; then
+
+	echo "Do not open applications automatically with discrete GPU."
+
+	# Disable the Hybrid Graphics Automatic feature for all applications.
+	/bin/sh /usr/share/regataos/gpu/prime/noapps-hybrid-graphics
+
+	# Open apps with hybrid graphics manually
+	cp -f /usr/share/kservices5/ServiceMenus/prime-gpu.desktop /usr/share/kservices5/ServiceMenus/prime-gpu.desktop
+
+	# desktop file for prime settings
+	cp -f /usr/share/applications/prime-settings.desktop /usr/share/applications/prime-settings.desktop
+
+else
+
+	# Open apps with hybrid graphics manually
+	cp -f /usr/share/kservices5/ServiceMenus/prime-gpu.desktop /usr/share/kservices5/ServiceMenus/prime-gpu.desktop
+
+	# desktop file for prime settings
+	cp -f /usr/share/applications/prime-settings.desktop /usr/share/applications/prime-settings.desktop
+
+	kmsg=$(users | cut -d ' ' -f 1)
+	echo $kmsg
+
+	test -f "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs" && source "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs"
+	DESKTOP_DIR="${XDG_DESKTOP_DIR:-/home/$kmsg/Desktop}"
+	kmsg2=$(echo $DESKTOP_DIR | cut -d/ -f 3-)
+	echo $kmsg2
+
+	DESKTOP_DIR=/home/$kmsg/$kmsg2
+
+	APPS_DIR=/usr/share/applications
+
+	APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
+
+## Games [
+
+	# steam
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-steam.txt ; then
+		# Disable DRI_PRIME for steam
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/steam.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/steam.desktop"
+	else
+		#Configure DRI_PRIME for steam
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/steam.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for steam"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/steam.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/steam.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for steam"
+		else
+			#Configure DRI_PRIME for steam
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/steam.desktop"
+		fi
+	fi
+
+	# pcsx2
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-pcsx2.txt ; then
+		# Disable DRI_PRIME for pcsx2
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/PCSX2.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/PCSX2.desktop"
+	else
+		#Configure DRI_PRIME for pcsx2
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/PCSX2.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for pcsx2"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/PCSX2.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/PCSX2.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for pcsx2"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/PCSX2.desktop"
+		fi
+	fi
+
+	# dolphin-emu
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-dolphin-emu.txt ; then
+		# Disable DRI_PRIME for dolphin-emu
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/dolphin-emu.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/dolphin-emu.desktop"
+	else
+		#Configure DRI_PRIME for dolphin-emu
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/dolphin-emu.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for dolphin-emu"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/dolphin-emu.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/dolphin-emu.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for dolphin-emu"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/dolphin-emu.desktop"
+		fi
+	fi
+
+	# supertuxkart
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-supertuxkart.txt ; then
+		# Disable DRI_PRIME for supertuxkart
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/supertuxkart.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/supertuxkart.desktop"
+	else
+		#Configure DRI_PRIME for supertuxkart
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/supertuxkart.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for supertuxkart"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/supertuxkart.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/supertuxkart.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for supertuxkart"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/supertuxkart.desktop"
+		fi
+	fi
+
+## }
+
+## Photo {
+
+	# gimp
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-gimp.txt ; then
+		# Disable DRI_PRIME for gimp
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/gimp.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gimp.desktop"
+	else
+		#Configure DRI_PRIME for gimp
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/gimp.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gimp"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/gimp.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/gimp.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gimp"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/gimp.desktop"
+		fi
+	fi
+
+	# darktable
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-darktable.txt ; then
+		# Disable DRI_PRIME for darktable
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/darktable.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/darktable.desktop"
+	else
+		#Configure DRI_PRIME for darktable
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/darktable.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for darktable"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/darktable.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/darktable.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for darktable"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/darktable.desktop"
+		fi
+	fi
+
+	# inkscape
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-inkscape.txt ; then
+		# Disable DRI_PRIME for inkscape
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/inkscape.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/inkscape.desktop"
+	else
+		#Configure DRI_PRIME for inkscape
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/inkscape.desktop)
+		echo $kmsg
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for inkscape"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/inkscape.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/inkscape.desktop")
+		echo $kmsg
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for inkscape"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/inkscape.desktop"
+		fi
+	fi
+
+	# krita
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-krita.txt ; then
+		# Disable DRI_PRIME for krita
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/org.kde.krita.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/krita_*.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/org.kde.krita.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/krita_*.desktop"
+	else
+		#Configure DRI_PRIME for krita
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/org.kde.krita.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for krita"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/org.kde.krita.desktop"
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/krita_*.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/org.kde.krita.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for krita"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/org.kde.krita.desktop"
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/krita_*.desktop"
+		fi
+	fi
+
+	# aftershot
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-aftershot.txt ; then
+		# Disable DRI_PRIME for aftershot
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/AfterShot3X64.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/AfterShot3X64.desktop"
+	else
+		#Configure DRI_PRIME for aftershot
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/AfterShot3X64.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for aftershot"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/AfterShot3X64.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/AfterShot3X64.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for aftershot"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/AfterShot3X64.desktop"
+		fi
+	fi
+
+	# gravit-designer
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-gravit-designer.txt ; then
+		# Disable DRI_PRIME for gravit-designer
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/gravit-designer.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gravit-designer.desktop"
+	else
+		#Configure DRI_PRIME for gravit-designer
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/gravit-designer.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gravit-designer"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/gravit-designer.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/gravit-designer.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gravit-designer"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/gravit-designer.desktop"
+		fi
+	fi
+
+## }
+
+## 3d modeling {
+
+	# blender
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-blender.txt ; then
+		# Disable DRI_PRIME for blender
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/blender.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/blender.desktop"
+	else
+		#Configure DRI_PRIME for blender
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/blender.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for blender"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/blender.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/blender.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for blender"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/blender.desktop"
+		fi
+	fi
+
+	## }
+
+## video editor {
+
+	# simplescreenrecorder
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-simplescreenrecorder.txt ; then
+		# Disable DRI_PRIME for simplescreenrecorder
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/simplescreenrecorder.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/simplescreenrecorder.desktop"
+	else
+		#Configure DRI_PRIME for simplescreenrecorder
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/simplescreenrecorder.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for simplescreenrecorder"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/simplescreenrecorder.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/simplescreenrecorder.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for simplescreenrecorder"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/simplescreenrecorder.desktop"
+		fi
+	fi
+
+	# lightworks
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-lightworks.txt ; then
+		# Disable DRI_PRIME for lightworks
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/lightworks.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/lightworks.desktop"
+	else
+		#Configure DRI_PRIME for lightworks
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/lightworks.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for lightworks"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/lightworks.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/lightworks.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for lightworks"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/lightworks.desktop"
+		fi
+	fi
+
+	# kdenlive
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-kdenlive.txt ; then
+		# Disable DRI_PRIME for kdenlive
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/org.kde.kdenlive.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/org.kde.kdenlive.desktop"
+	else
+		#Configure DRI_PRIME for kdenlive
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/org.kde.kdenlive.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for kdenlive"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/org.kde.kdenlive.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/org.kde.kdenlive.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for kdenlive"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/org.kde.kdenlive.desktop"
+		fi
+	fi
+
+	# obs
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-obs.txt ; then
+		# Disable DRI_PRIME for obs
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/com.obsproject.Studio.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/com.obsproject.Studio.desktop"
+	else
+		#Configure DRI_PRIME for obs
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/com.obsproject.Studio.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for obs"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/com.obsproject.Studio.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/com.obsproject.Studio.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for obs"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/com.obsproject.Studio.desktop"
+		fi
+	fi
+
+	# nuke
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-nuke.txt ; then
+		# Disable DRI_PRIME for nuke
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/Nuke*.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/Hiero*.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Nuke*.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Hiero*.desktop"
+	else
+		#Configure DRI_PRIME for nuke
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/Nuke*.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for nuke"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/Nuke*.desktop"
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/Hiero*.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/Nuke*.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for nuke"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/Nuke*.desktop"
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/Hiero*.desktop"
+		fi
+	fi
+
+	# shotcut
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-shotcut.txt ; then
+		# Disable DRI_PRIME for shotcut
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/org.shotcut.Shotcut.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/org.shotcut.Shotcut.desktop"
+	else
+		#Configure DRI_PRIME for shotcut
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/org.shotcut.Shotcut.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for shotcut"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/org.shotcut.Shotcut.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/org.shotcut.Shotcut.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for shotcut"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/org.shotcut.Shotcut.desktop"
+		fi
+	fi
+
+	# davinci-resolve
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-davinci-resolve.txt ; then
+		# Disable DRI_PRIME for davinci-resolve
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/DaVinci*.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/DaVinci*.desktop"
+	else
+		#Configure DRI_PRIME for davinci-resolve
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/DaVinci*.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for davinci-resolve"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/DaVinci*.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/DaVinci*.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for davinci-resolve"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/DaVinci*.desktop"
+		fi
+	fi
+
+	# fusionforlinux
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-fusionforlinux.txt ; then
+		# Disable DRI_PRIME for fusionforlinux
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/com.blackmagicdesign.Fusion9.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/com.blackmagicdesign.Fusion9.desktop"
+	else
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/com.blackmagicdesign.Fusion9.desktop)
+		echo $kmsg
+
+		#Configure DRI_PRIME for fusionforlinux
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for fusionforlinux"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/com.blackmagicdesign.Fusion9.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/com.blackmagicdesign.Fusion9.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for fusionforlinux"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/com.blackmagicdesign.Fusion9.desktop"
+		fi
+	fi
+
+	# openshot
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-openshot.txt ; then
+		# Disable DRI_PRIME for openshot
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/openshot-qt.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/openshot-qt.desktop"
+	else
+		#Configure DRI_PRIME for openshot
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/openshot-qt.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for openshot"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/openshot-qt.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/openshot-qt.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for openshot"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/openshot-qt.desktop"
+		fi
+	fi
+
+	# natron
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-natron.txt ; then
+		# Disable DRI_PRIME for natron
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_LOCAL_DIR/Natron2.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_LOCAL_DIR/Natron2Setup.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Natron2.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Natron2Setup.desktop"
+	else
+		#Configure DRI_PRIME for natron
+		kmsg=$(grep -r regataos-dgpu $APPS_LOCAL_DIR/Natron2.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for natron"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_LOCAL_DIR/Natron2.desktop"
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_LOCAL_DIR/Natron2Setup.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu $DESKTOP_DIR/Natron2.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for natron"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/Natron2.desktop"
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/Natron2Setup.desktop"
+		fi
+	fi
+
+## }
+
+fi
+
+update-desktop-database
+
+else
+
+	echo "There seems to be no hybrid graphics."
+
+fi

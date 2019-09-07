@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PRIME Settings</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<link rel="stylesheet" type="text/css" href="./../css/style.css">
+	<link rel="stylesheet" type="text/css" href="./../css/style-settings/buttom-switch-settings.css">
+	<script type="text/javascript" src="./../js/jquery.min.js"></script>
+	<script type="text/javascript" src="./../js/update-css.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/prime-settings.js"></script>
+	<script type="text/javascript" src="./../js/actions-apps/reverse-prime.js"></script>
+				<!-- all js files for update-css.js -->
+	<script type="text/javascript" src="./../js/check-apps/all-apps.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/all-apps-reload.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/games.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/3dmodeling.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/photo.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/video-editor.js"></script>
+	<script type="text/javascript" src="./../js/actions-apps/games.js"></script>
+	<script type="text/javascript" src="./../js/actions-apps/3dmodeling.js"></script>
+	<script type="text/javascript" src="./../js/actions-apps/photo.js"></script>
+	<script type="text/javascript" src="./../js/actions-apps/video-editor.js"></script>
+	<script type="text/javascript" src="./../js/actions-apps/all-apps.js"></script>
+</head>
+<body>
+
+	<div class="div1">
+		<div id="title" class="hdiv1">PRIME Settings</div>
+		<p class="p1-settings">Se a GPU dedicada do seu dispositivo possuir saídas que não são acessíveis pela GPU principal (gráficos integrados), você pode usar o "Reverse PRIME" para fazer uso delas. Isso fará com que a GPU principal renderize as imagens para só depois enviá-las para as saídas da GPU dedicada.</p>
+	</div>
+
+	<div class="div2">
+		<ul>
+			<!-- REVERSE PRIME -->
+			<li id="reverse-prime">
+				<div class="text-app">Ativar o Reverse PRIME</div><div class="switch__container">
+					<input id="switch-shadow-reverse-prime" class="switch switch--shadow-reverse-prime" type="checkbox" onclick="reverse_prime();">
+					<label for="switch-shadow-reverse-prime"></label></div><div class="switch__container">
+					<input id="switch-shadow2-reverse-prime" class="switch switch--shadow2-reverse-prime" type="checkbox" onclick="reverse_prime();">
+					<label for="switch-shadow2-reverse-prime"></label></div><span class='reverse-prime-on'>Reverse PRIME ativado</span><span class='reverse-prime-off'>Reverse PRIME desativado</span>
+			</li>
+			<li id="selecte-gpu">
+				<div class="text-app">Renderizar com a GPU:</div><select class="selectnav" id="selectnav1" onchange="changeFunc(value);"><option value="1">Ingetrada</option><option value="2">Dedicada</option></select><select class="selectnav" id="selectnav2" onchange="changeFunc(value);"><option value="2">Dedicada</option><option value="1">Ingetrada</option></select><span class='reverse-prime-igpu'>Economia de energia</span><span class='reverse-prime-dgpu'>Alta performance</span>
+			</li>
+			<li id="kscreen" onclick="kscreen();">
+				<div class="text-app">Configurações de tela</div><span class='kscreen-desc'>Gerencie e configure monitores e telas</span>
+			</li>
+		</ul>
+	</div>
+
+	<div class="div3">
+		<ul id="menu">
+			<a href="./../index.html">
+			<li id="apps2">
+				<div class="icone-menu" style="background-image:url(./../images/apps2.png);"></div><p class="p-menu">Aplicativos</p>
+			</li>
+			</a>
+			<a href="#">
+			<li id="settings">
+				<div class="icone-menu" style="background-image:url(./../images/settings3.png);"></div><p class="p-menu">Configurações</p>
+			</li>
+			</a>
+			<a href="system.html">
+			<li id="system2">
+				<div class="icone-menu" style="background-image:url(./../images/system2.png);"></div><p class="p-menu">Sistema</p>
+			</li>
+			</a>
+		</ul>
+	</div>
+
+</body>
+</html>
