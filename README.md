@@ -1,2 +1,4 @@
 # prime-settings
-This app lets you manage which apps should run with dGPU on hybrid graphics laptops.
+PRIME Settings is an application developed with web technologies to help Linux users choose which applications can run with their notebook's dGPU with hybrid graphics.
+
+To run, the application uses MAGMA, a solution based on NW.js, but it is possible to use other frameworks such as Electron.
