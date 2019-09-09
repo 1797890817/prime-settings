@@ -22,6 +22,6 @@ fi
 
 # Clear cache
 if test -e /opt/regataos-vulkan/icd.d ; then
-	rm -f /tmp/regataos-prime/vulkan-hybrid-graphics.txt
+	rm -f "/tmp/regataos-prime/vulkan-hybrid-graphics.txt"
 	sudo /usr/share/regataos/gpu/prime/vulkan-hybrid-graphics start
 fi

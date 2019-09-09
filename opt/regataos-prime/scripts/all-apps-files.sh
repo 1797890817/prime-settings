@@ -8,5 +8,5 @@ echo $kmsg
 if [[ $kmsg == *"noapps"* ]]; then
 	echo "all apps" > /tmp/regataos-prime/all-apps-dri.txt
 else
-	rm -f /tmp/regataos-prime/all-apps-dri.txt
+	rm -f "/tmp/regataos-prime/all-apps-dri.txt"
 fi

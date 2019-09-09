@@ -1,5 +1,5 @@
 Package: prime-settings
-Version: 7.0
+Version: 7.1
 Maintainer: LinuxBuzz Software
 Depends: unar, systemd, magma, inxi, lshw
 Provides: magma

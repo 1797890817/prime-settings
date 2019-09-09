@@ -1,11 +1,11 @@
 #!/bin/bash
 #
 
-rm -f /opt/magma/regataosprime
-rm -f /usr/bin/regataosprime
-rm -f /usr/share/kservices5/ServiceMenus/prime-gpu.desktop
-rm -f /usr/share/applications/prime-settings.desktop
-rm -f /usr/bin/prime-dgpu
+rm -f "/opt/magma/regataosprime"
+rm -f "/usr/bin/regataosprime"
+rm -f "/usr/share/kservices5/ServiceMenus/prime-gpu.desktop"
+rm -f "/usr/share/applications/prime-settings.desktop"
+rm -f "/usr/bin/prime-dgpu"
 
 systemctl stop    detect-hybrid-graphics.service || true
 systemctl disable detect-hybrid-graphics.service || true
