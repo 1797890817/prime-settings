@@ -9,6 +9,8 @@
 	echo dolphin-emu > /tmp/regataos-prime/noapps-hybrid-graphics-dolphin-emu.txt
 	# supertuxkart
 	echo supertuxkart > /tmp/regataos-prime/noapps-hybrid-graphics-supertuxkart.txt
+	# retroarch
+	echo retroarch > /tmp/regataos-prime/noapps-hybrid-graphics-retroarch.txt
 # }
 
 # PHOTO {

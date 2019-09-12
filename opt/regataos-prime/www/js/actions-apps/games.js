@@ -136,3 +136,37 @@ fs.access(dir+'noapps-hybrid-graphics-supertuxkart.txt', (err) => {
 }
 });
 }
+
+// retroarch
+function retroarch_enable(){
+	const exec = require('child_process').exec;
+	var comando = "rm -f "+dir+"noapps-hybrid-graphics-retroarch.txt; sudo "+dir2+"apps-hybrid-graphics start";
+	console.log(comando);
+	exec(comando,function(error,call,errlog){
+	});
+}
+
+function retroarch_disable(){
+	const exec = require('child_process').exec;
+	var comando = "echo retroarch > "+dir+"noapps-hybrid-graphics-retroarch.txt; echo all-apps > "+dir+"all-apps-dri.txt; sudo "+dir2+"apps-hybrid-graphics start";
+	console.log(comando);
+	exec(comando,function(error,call,errlog){
+	});
+}
+
+function retroarch(){
+	const fs = require('fs');
+fs.access(dir+'noapps-hybrid-graphics-retroarch.txt', (err) => {
+  if (!err) {
+	console.error('myfile already exists');
+	retroarch_enable();
+		$(".retroarch-off").css("display", "none")
+		$(".retroarch-on").css("display", "block")
+	return;
+} else {
+	retroarch_disable();
+		$(".retroarch-off").css("display", "block")
+		$(".retroarch-on").css("display", "none")
+}
+});
+}

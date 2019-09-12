@@ -23,6 +23,9 @@ body{
 #system {
 	display: auto;
 }
+#reverse-prime {
+	display: none;
+}
 
 /* scrollbar css */
 

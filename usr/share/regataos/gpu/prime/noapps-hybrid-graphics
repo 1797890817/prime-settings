@@ -40,6 +40,8 @@ APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
 	# gimp
 	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/gimp.desktop"
 	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gimp.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$SNAP_DIR/gimp_gimp.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gimp_gimp.desktop"
 
 	# darktable
 	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/darktable.desktop"
@@ -121,4 +123,5 @@ APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
 
 # }
 
-update-desktop-database
+# Update desktop cache
+#update-desktop-database

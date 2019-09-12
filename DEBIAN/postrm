@@ -15,3 +15,5 @@ systemctl disable regataos-check-use-dgpu.service || true
 
 systemctl stop    apps-hybrid-graphics-service.service || true
 systemctl disable apps-hybrid-graphics-service.service || true
+
+update-desktop-database

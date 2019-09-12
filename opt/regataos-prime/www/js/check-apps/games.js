@@ -1,4 +1,6 @@
 // enable/disable display buttom
+var APPS_DIR = "/usr/share/applications"
+var SNAP_DIR = "/var/lib/snapd/desktop/applications"
 
 // steam
 function steam_buttom() {
@@ -19,7 +21,7 @@ function steam_buttom() {
 	}
 	});
 
-	fs.access('/usr/share/applications/steam.desktop', (err) => {
+	fs.access(APPS_DIR+'/steam.desktop', (err) => {
 	if (!err) {
 		console.error('myfile already exists');
 	return;
@@ -48,7 +50,7 @@ function pcsx2_buttom() {
 	}
 	});
 
-	fs.access('/usr/share/applications/PCSX2.desktop', (err) => {
+	fs.access(APPS_DIR+'/PCSX2.desktop', (err) => {
 	if (!err) {
 		console.error('myfile already exists');
 	return;
@@ -77,7 +79,7 @@ function dolphin_emu_buttom() {
 	}
 	});
 
-	fs.access('/usr/share/applications/dolphin-emu.desktop', (err) => {
+	fs.access(APPS_DIR+'/dolphin-emu.desktop', (err) => {
 	if (!err) {
 		console.error('myfile already exists');
 	return;
@@ -106,12 +108,48 @@ function supertuxkart_buttom() {
 	}
 	});
 
-	fs.access('/usr/share/applications/supertuxkart.desktop', (err) => {
+	fs.access(APPS_DIR+'/supertuxkart.desktop', (err) => {
 	if (!err) {
 		console.error('myfile already exists');
 	return;
 	} else {
 		$("#supertuxkart").css("display", "none")
+	}
+	});
+}
+
+// retroarch
+function retroarch_buttom() {
+	const fs = require('fs');
+	fs.access('/tmp/regataos-prime/noapps-hybrid-graphics-retroarch.txt', (err) => {
+	if (!err) {
+		console.error('myfile already exists');
+		$(".switch--shadow2-retroarch + label").css("display", "block")
+		$(".switch--shadow-retroarch + label").css("display", "none")
+		$(".retroarch-off").css("display", "block")
+		$(".retroarch-on").css("display", "none")
+	return;
+	} else {
+		$(".switch--shadow2-retroarch + label").css("display", "none")
+		$(".switch--shadow-retroarch + label").css("display", "block")
+		$(".retroarch-off").css("display", "none")
+		$(".retroarch-on").css("display", "block")
+	}
+	});
+
+	fs.access(APPS_DIR+'/retroarch.desktop', (err) => {
+	if (!err) {
+		console.error('myfile already exists');
+	return;
+	} else {
+		fs.access(SNAP_DIR+'/retroarch_retroarch.desktop', (err) => {
+		if (!err) {
+			console.error('myfile already exists');
+		return;
+		} else {
+			$("#retroarch").css("display", "none")
+		}
+		});
 	}
 	});
 }

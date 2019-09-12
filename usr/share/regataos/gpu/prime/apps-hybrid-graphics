@@ -32,11 +32,11 @@ else
 	kmsg2=$(echo $DESKTOP_DIR | cut -d/ -f 3-)
 	echo $kmsg2
 
+	#Application .desktop file directories
 	DESKTOP_DIR=/home/$kmsg/$kmsg2
-
 	APPS_DIR=/usr/share/applications
-
 	APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
+	SNAP_DIR=/var/lib/snapd/desktop/applications
 
 ## Games [
 
@@ -145,6 +145,53 @@ else
 		fi
 	fi
 
+	# retroarch
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-retroarch.txt ; then
+		# Disable DRI_PRIME for retroarch
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/retroarch.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/retroarch.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$SNAP_DIR/retroarch_retroarch.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/retroarch_retroarch.desktop"
+	else
+		#Configure DRI_PRIME for retroarch
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/retroarch.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for retroarch"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/retroarch.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/retroarch.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for retroarch"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/retroarch.desktop"
+		fi
+
+		# Snap app
+		kmsg=$(grep -r regataos-dgpu "$SNAP_DIR/retroarch_retroarch.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gimp"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$SNAP_DIR/retroarch_retroarch.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/retroarch_retroarch.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gimp"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/retroarch_retroarch.desktop"
+		fi
+	fi
+
 ## }
 
 ## Photo {
@@ -154,11 +201,14 @@ else
 		# Disable DRI_PRIME for gimp
 		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/gimp.desktop"
 		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gimp.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$SNAP_DIR/gimp_gimp.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/gimp_gimp.desktop"
 	else
 		#Configure DRI_PRIME for gimp
 		kmsg=$(grep -r regataos-dgpu $APPS_DIR/gimp.desktop)
 		echo $kmsg
 
+		# Repo app
 		if [[ $kmsg == *"regataos-dgpu"* ]]; then
 			echo "DRI_PRIME enabled for gimp"
 		else
@@ -172,6 +222,25 @@ else
 			echo "DRI_PRIME enabled for gimp"
 		else
 			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/gimp.desktop"
+		fi
+
+		# Snap app
+		kmsg=$(grep -r regataos-dgpu "$SNAP_DIR/gimp_gimp.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gimp"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$SNAP_DIR/gimp_gimp.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/gimp_gimp.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for gimp"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/gimp_gimp.desktop"
 		fi
 	fi
 
@@ -613,7 +682,10 @@ else
 
 fi
 
-update-desktop-database
+# Update desktop cache
+#update-desktop-database
+#sleep 5
+#update-desktop-database
 
 else
 

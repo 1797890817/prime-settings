@@ -76,6 +76,8 @@ all_apps_buttom();
 	dolphin_emu_buttom();
 	//supertuxkart
 	supertuxkart_buttom();
+	//retroarch
+	retroarch_buttom();
 // }
 
 // 3D MODELING {
@@ -143,6 +145,8 @@ all_apps_buttom();
 	dolphin_emu_buttom();
 	//supertuxkart
 	supertuxkart_buttom();
+	//retroarch
+	retroarch_buttom();
 // }
 
 // 3D MODELING {
@@ -217,6 +221,8 @@ all_apps_buttom();
 	dolphin_emu_buttom();
 	//supertuxkart
 	supertuxkart_buttom();
+	//retroarch
+	retroarch_buttom();
 // }
 
 // 3D MODELING {
@@ -284,6 +290,8 @@ all_apps_buttom();
 	dolphin_emu_buttom();
 	//supertuxkart
 	supertuxkart_buttom();
+	//retroarch
+	retroarch_buttom();
 // }
 
 // 3D MODELING {

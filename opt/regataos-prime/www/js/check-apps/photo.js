@@ -1,5 +1,6 @@
 // enable/disable display buttom
 var APPS_DIR = "/usr/share/applications"
+var SNAP_DIR = "/var/lib/snapd/desktop/applications"
 
 // gimp
 function gimp_buttom() {
@@ -25,7 +26,14 @@ function gimp_buttom() {
 		console.error('myfile already exists');
 	return;
 	} else {
-		$("#gimp").css("display", "none")
+		fs.access(SNAP_DIR+'/gimp_gimp.desktop', (err) => {
+		if (!err) {
+			console.error('myfile already exists');
+		return;
+		} else {
+			$("#gimp").css("display", "none")
+		}
+		});
 	}
 	});
 }
