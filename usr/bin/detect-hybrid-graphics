@@ -23,7 +23,7 @@ if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
 			rm -f "/usr/share/X11/xorg.conf.d/20-intel.conf"
 			rm -f "/etc/X11/xorg.conf.d/20-nvidia.conf"
 			rm -f "/usr/share/X11/xorg.conf.d/20-nvidia.conf"
-    	fi
+		fi
 
 		echo NVIDIA > /usr/share/regataos/use-hybrid-graphics-nvidia.txt
 		echo NVIDIA > /tmp/regataos-prime/use-hybrid-graphics-nvidia.txt

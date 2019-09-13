@@ -54,15 +54,3 @@ else
 	rm -f "/tmp/regataos-prime/use-hybrid-graphics.txt"
 
 fi
-
-# Enable/Desable Reverse Prime
-if test -e /tmp/regataos-prime/reverse-prime.txt ; then
-	if test -e /tmp/regataos-prime/renderer-dgpu.txt ; then
-		xrandr --setprovideroutputsource 0 1
-		xrandr --auto
-		xrandr --dpi 96
-	else
-		xrandr --auto
-		xrandr --dpi 96
-	fi
-fi

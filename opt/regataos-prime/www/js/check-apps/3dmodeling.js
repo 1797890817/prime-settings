@@ -25,7 +25,14 @@ function blender_buttom() {
 		console.error('myfile already exists');
 	return;
 	} else {
-		$("#blender").css("display", "none")
+		fs.access(SNAP_DIR+'/blender_blender.desktop', (err) => {
+		if (!err) {
+			console.error('myfile already exists');
+		return;
+		} else {
+			$("blender").css("display", "none")
+		}
+		});
 	}
 	});
 }

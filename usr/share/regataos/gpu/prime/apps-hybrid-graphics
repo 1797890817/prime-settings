@@ -385,6 +385,8 @@ else
 		# Disable DRI_PRIME for blender
 		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/blender.desktop"
 		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/blender.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$SNAP_DIR/blender_blender.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/blender_blender.desktop"
 	else
 		#Configure DRI_PRIME for blender
 		kmsg=$(grep -r regataos-dgpu $APPS_DIR/blender.desktop)
@@ -403,6 +405,25 @@ else
 			echo "DRI_PRIME enabled for blender"
 		else
 			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/blender.desktop"
+		fi
+
+		# Snap app
+		kmsg=$(grep -r regataos-dgpu "$SNAP_DIR/blender_blender.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for blender"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$SNAP_DIR/blender_blender.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/blender_blender.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for blender"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/blender_blender.desktop"
 		fi
 	fi
 
