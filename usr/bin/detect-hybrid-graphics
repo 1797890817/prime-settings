@@ -13,14 +13,17 @@ if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
 		rm -f "/tmp/regataos-prime/not-hybrid-graphics.txt"
 		rm -f "/tmp/regataos-prime/use-hybrid-graphics-amd.txt"
 
-    	rm -f "/etc/X11/xorg.conf.d/20-amdgpu.conf"
-    	rm -f "/usr/share/X11/xorg.conf.d/20-amdgpu.conf"
-    	rm -f "/etc/X11/xorg.conf.d/20-radeon.conf"
-    	rm -f "/usr/share/X11/xorg.conf.d/20-radeon.conf"
-    	rm -f "/etc/X11/xorg.conf.d/20-intel.conf"
-    	rm -f "/usr/share/X11/xorg.conf.d/20-intel.conf"
-		rm -f "/etc/X11/xorg.conf.d/20-nvidia.conf"
-    	rm -f "/usr/share/X11/xorg.conf.d/20-nvidia.conf"
+		kmsg=$(grep -r NAME /etc/os-release)
+		if [[ $kmsg == *"Regata OS"* ]]; then
+			rm -f "/etc/X11/xorg.conf.d/20-amdgpu.conf"
+			rm -f "/usr/share/X11/xorg.conf.d/20-amdgpu.conf"
+			rm -f "/etc/X11/xorg.conf.d/20-radeon.conf"
+			rm -f "/usr/share/X11/xorg.conf.d/20-radeon.conf"
+			rm -f "/etc/X11/xorg.conf.d/20-intel.conf"
+			rm -f "/usr/share/X11/xorg.conf.d/20-intel.conf"
+			rm -f "/etc/X11/xorg.conf.d/20-nvidia.conf"
+			rm -f "/usr/share/X11/xorg.conf.d/20-nvidia.conf"
+    	fi
 
 		echo NVIDIA > /usr/share/regataos/use-hybrid-graphics-nvidia.txt
 		echo NVIDIA > /tmp/regataos-prime/use-hybrid-graphics-nvidia.txt
