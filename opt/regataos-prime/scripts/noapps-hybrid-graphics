@@ -1,21 +1,22 @@
 #!/bin/bash
 
 # Disable the Hybrid Graphics Automatic feature for all applications.
+#Search username
 kmsg=$(users | cut -d ' ' -f 1)
 echo $kmsg
 
+# Search desktop
 test -f "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs" && source "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs"
 DESKTOP_DIR="${XDG_DESKTOP_DIR:-/home/$kmsg/Desktop}"
 kmsg2=$(echo $DESKTOP_DIR | cut -d/ -f 3-)
 echo $kmsg2
 
+# Directory where the .desktop files are located
 DESKTOP_DIR=/home/$kmsg/$kmsg2
-
 APPS_DIR=/usr/share/applications
-
 APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
 
-# Games [
+# Games {
 
 	# steam
 	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/steam.desktop"
@@ -122,6 +123,3 @@ APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
 	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/Natron2Setup.desktop"
 
 # }
-
-# Update desktop cache
-#update-desktop-database

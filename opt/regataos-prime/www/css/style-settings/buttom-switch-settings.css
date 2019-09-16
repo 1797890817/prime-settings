@@ -153,24 +153,33 @@ li#selecte-gpu {
 	display: none;
 }
 
-/* CSS kscreen */
-#kscreen {
-	cursor: pointer;
+/* run dGPU test */
+.test-dgpu {
+    width: 140px;
+    height: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
 }
 
-li#kscreen:active {
+.test-dgpu:active {
 	background: #272e33;
 	box-shadow: 0 0px 0px rgba(0,0,0,.15);
 	transition: all .2s;
 }
 
-.kscreen-desc {
-	position: absolute;
-	top: 40px;
-	left: 20px;
-	font-size: 13px;
-	font-weight: 600;
-	color: #adabab;
+.div-test {
+	text-align: center;
+    margin: auto;
+    width: 355px;
+    height: 50px;
+	margin-top: 30px;
+}
+
+#box-pop-up ul {
+	margin: auto;
 }
 
 /* responsive CSS */

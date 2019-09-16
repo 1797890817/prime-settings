@@ -2,6 +2,10 @@
 all_apps_buttom();
 // }
 
+//ALL APPS BUTTOM {
+check_nvidia();
+// }
+
 //Reverse Prime BUTTOM {
 reverse_prime_buttom();
 set_renderer_buttom();

@@ -6,10 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<link rel="stylesheet" type="text/css" href="./../css/style.css">
 	<link rel="stylesheet" type="text/css" href="./../css/style-settings/buttom-switch-settings.css">
+	<link rel="stylesheet" type="text/css" href="./../css/style-settings/nvidia-driver-version.css">
 	<script type="text/javascript" src="./../js/jquery.min.js"></script>
 	<script type="text/javascript" src="./../js/update-css.js"></script>
+	<script type="text/javascript" src="./../js/fade.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/prime-settings.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/check-nvidia.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/reverse-prime.js"></script>
+	<script type="text/javascript" src="./../js/actions-apps/settings.js"></script>
 				<!-- all js files for update-css.js -->
 	<script type="text/javascript" src="./../js/check-apps/all-apps.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/all-apps-reload.js"></script>
@@ -22,14 +26,28 @@
 	<script type="text/javascript" src="./../js/actions-apps/photo.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/video-editor.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/all-apps.js"></script>
+	
+	<script type="text/javascript">
+		//close_popup
+		function close_popup(){
+			document.getElementById("pop-up").style.display = "none";
+		}
+
+		//open_popup
+		function open_popup(){
+			document.getElementById("pop-up").style.display = "block";
+		}
+	</script>
+
 </head>
 <body>
 
 	<div class="div1">
 		<div id="title" class="hdiv1">PRIME Settings</div>
-		<p class="p1-settings">Escolha a melhor configuração para a sua tela.</p>
+		<p class="p1-settings">Escolha a melhor configuração para a sua GPU dedicada, configure a tela e execute simples testes.</p>
 	</div>
 
+	<div id='loadscreen'></div>
 	<div class="div2">
 		<ul>
 			<!-- REVERSE PRIME -->
@@ -43,10 +61,30 @@
 			<li id="selecte-gpu">
 				<div class="text-app">Renderizar com a GPU:</div><select class="selectnav" id="selectnav1" onchange="changeFunc(value);"><option value="1">Ingetrada</option><option value="2">Dedicada</option></select><select class="selectnav" id="selectnav2" onchange="changeFunc(value);"><option value="2">Dedicada</option><option value="1">Ingetrada</option></select><span class='reverse-prime-igpu'>Economia de energia</span><span class='reverse-prime-dgpu'>Alta performance</span>
 			</li>
-			<li id="kscreen" onclick="kscreen();">
-				<div class="text-app">Configurações de tela</div><span class='kscreen-desc'>Gerencie e configure monitores e telas</span>
+			<li id="buttom-click" onclick="kscreen();">
+				<div class="text-app">Configurações de tela</div><span class='info-item'>Gerencie e configure monitores e telas</span>
+			</li>
+			<li id="use-nvidia-click" onclick="nvidia_driver();">
+				<div class="text-app">Configurações do driver NVIDIA</div><span class='info-item'>Escolha a melhor configuração para a sua GPU</span>
+			</li>
+			<li id="buttom-click" onclick="open_popup();">
+				<div class="text-app">Executar testes com a GPU dedicada</div><span class='info-item'>Rode simples teste com OpenGL ou Vulkan</span>
 			</li>
 		</ul>
+	</div>
+
+	<div id="pop-up">
+		<div id="box-pop-up">
+			<div id="button-close" type="button" onclick="close_popup();" style="background-image:url(./../images/close.png); background-repeat: no-repeat; background-size: 17px 17px;" title="Fechar" alt="Fechar"></div>
+			<h3>Testar a GPU dedicada</h3>
+			<p>Execute um teste simples com a GPU dedicada do seu dispositivo, escolhendo uma das opções:</p>
+			<div class="div-test">
+				<ul>
+					<li class="test-dgpu" onclick="teste_dgpu_gl();"><span>Teste com o OpenGL</span></li>
+					<li class="test-dgpu" onclick="teste_dgpu_vk();"><span>Teste com a Vulkan</span></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<div class="div3">

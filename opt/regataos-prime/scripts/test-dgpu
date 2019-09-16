@@ -1,7 +1,11 @@
 #!/bin/bash
 
-if test -e /tmp/regataos-prime/nvidia-driver.txt ; then
-	regataos-dgpu vkcube
-else
-	GALLIUM_HUD_PERIOD=1 GALLIUM_HUD="simple,GPU-load,VRAM-usage,memory-clock,shader-clock,cpu,temperature,fps" regataos-dgpu glxgears
-fi
+case $1 in
+   "-gl") GALLIUM_HUD_PERIOD=1 GALLIUM_HUD="simple,GPU-load,VRAM-usage,memory-clock,shader-clock,cpu,temperature,fps" regataos-dgpu glxgears
+         ;;
+   "-vk") regataos-dgpu vkcube
+         ;;
+   *) echo "Invalid option!"
+      exit 1
+      ;;
+esac

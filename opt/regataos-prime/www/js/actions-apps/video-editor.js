@@ -1,5 +1,5 @@
 var dir = "/tmp/regataos-prime/"
-var dir2 = "/usr/share/regataos/gpu/prime/"
+var dir2 = "/opt/regataos-prime/scripts/"
 
 // simplescreenrecorder
 function simplescreenrecorder_enable(){

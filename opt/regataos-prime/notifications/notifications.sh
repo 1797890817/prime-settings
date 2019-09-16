@@ -2,6 +2,7 @@
 
 cd /
 
+# Display notifications by user language
 kmsg=$(grep -r LANG /home/*/.config/plasma-localerc)
 echo $kmsg
 

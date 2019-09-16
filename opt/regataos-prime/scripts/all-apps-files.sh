@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Make sure dGPU is off for at least one app
 cd /tmp/regataos-prime/
 
 kmsg=$(ls | grep noapps)

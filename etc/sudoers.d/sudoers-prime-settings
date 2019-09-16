@@ -1,10 +1,12 @@
 ## sudoers file.
 ##
 
-ALL ALL=NOPASSWD:/usr/share/regataos/gpu/prime/vulkan-hybrid-graphics
+ALL ALL=NOPASSWD:/opt/regataos-prime/scripts/vulkan-hybrid-graphics
 
-ALL ALL=NOPASSWD:/usr/share/regataos/gpu/prime/apps-hybrid-graphics
+ALL ALL=NOPASSWD:/opt/regataos-prime/scripts/apps-hybrid-graphics
 
-ALL ALL=NOPASSWD:/usr/share/regataos/gpu/prime/noapps-hybrid-graphics
+ALL ALL=NOPASSWD:/opt/regataos-prime/scripts/noapps-hybrid-graphics
 
-ALL ALL=NOPASSWD:/usr/share/regataos/gpu/prime/check-gpus.sh
+ALL ALL=NOPASSWD:/opt/regataos-prime/scripts/prime-settings-system-info.sh
+
+ALL ALL=NOPASSWD:/opt/regataos-prime/scripts/system-info.sh

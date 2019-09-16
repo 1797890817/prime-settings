@@ -7,11 +7,13 @@
 	<link rel="stylesheet" type="text/css" href="./../css/style.css">
 	<link rel="stylesheet" type="text/css" href="./../css/style-settings/buttom-switch-settings.css">
 	<link rel="stylesheet" type="text/css" href="./../css/style-system/buttom-system.css">
-	<link rel="stylesheet" type="text/css" href="./../css/style-system/buttom-system-dgpu.css">
+	<link rel="stylesheet" type="text/css" href="./../css/style-system/prime-settings-system-info.css">
 	<script type="text/javascript" src="./../js/jquery.min.js"></script>
 	<script type="text/javascript" src="./../js/update-css.js"></script>
+	<script type="text/javascript" src="./../js/fade.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/system.js"></script>
 				<!-- all js files for update-css.js -->
+	<script type="text/javascript" src="./../js/check-apps/check-nvidia.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/all-apps.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/all-apps-reload.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/games.js"></script>
@@ -31,13 +33,32 @@
 		<p class="p1-settings">Confira informações do seu sistema ou realize simples testes com a sua GPU dedicada.</p>
 	</div>
 
+	<div id='loadscreen'></div>
 	<div class="div2">
 		<ul>
-			<li id="kinfocenter" onclick="kinfocenter();">
-				<div class="text-app">Informações do sistema</div><span class='kinfocenter-desc'>Centro de informações do sistema</span>
+			<li id="use-nvidia">
+				<div class="text-app">Driver NVIDIA</div><span class='nvidia-driver-info info-item'></span>
 			</li>
-			<li id="teste-dgpu" onclick="teste_dgpu();">
-				<div class="text-app">Executar teste com a GPU dedicada</div><span class='teste-dgpu-desc'></span>
+			<li>
+				<div class="text-app">Chipset gráfico</div><span class='dgpu-info info-item'></span>
+			</li>
+			<li>
+				<div class="text-app">Tamanho da memória de vídeo</div><span class='vram-info info-item'></span>
+			</li>
+			<li>
+				<div class="text-app">Sistema operacional</div><span class='os-info info-item'></span>
+			</li>
+			<li>
+				<div class="text-app">Memória do sistema</div><span class='ram-info info-item'></span>
+			</li>
+			<li>
+				<div class="text-app">Modelo da CPU</div><span class='cpu-info info-item'></span>
+			</li>
+			<li>
+				<div class="text-app">Versão da pilha gráfica Mesa</div><span class='mesa-info info-item'></span>
+			</li>
+			<li id="buttom-click" onclick="kinfocenter();">
+				<div class="text-app">Mais detalhes sobre o sistema</div><span class='info-item'>Centro de informações do sistema</span>
 			</li>
 		</ul>
 	</div>

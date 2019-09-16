@@ -1,7 +1,13 @@
 #!/bin/bash
 
-sudo /usr/share/regataos/gpu/prime/apps-hybrid-graphics start
+# Update system info
+sudo /opt/regataos-prime/scripts/system-info.sh start
 
-dir_scripts=/opt/regataos-prime/scripts
+# Check the list of supported apps
+sudo /opt/regataos-prime/scripts/apps-hybrid-graphics start
 
-$dir_scripts/all-apps-files.sh; regataosprime /opt/regataos-prime
+# Make sure dGPU is off for at least one app
+/opt/regataos-prime/scripts/all-apps-files.sh start
+
+# Finally, run PRIME Settings
+regataosprime /opt/regataos-prime

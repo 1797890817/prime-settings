@@ -1,7 +1,7 @@
 // reverse-prime
 function reverse_prime_on(){
 	const exec = require('child_process').exec;
-	var comando = "echo reverse-prime > /tmp/regataos-prime/reverse-prime.txt; /usr/share/regataos/gpu/prime/reverse-prime/reverse-prime.sh start";
+	var comando = "echo reverse-prime > /tmp/regataos-prime/reverse-prime.txt; /opt/regataos-prime/scripts/reverse-prime/reverse-prime.sh start";
 	console.log(comando);
 	exec(comando,function(error,call,errlog){
 	});
@@ -9,22 +9,13 @@ function reverse_prime_on(){
 
 function reverse_prime_off(){
 	const exec = require('child_process').exec;
-	var comando = "rm -f /tmp/regataos-prime/reverse-prime.txt; /usr/share/regataos/gpu/prime/reverse-prime/reverse-prime.sh start";
-	console.log(comando);
-	exec(comando,function(error,call,errlog){
-	});
-}
-
-function kscreen(){
-	const exec = require('child_process').exec;
-	var comando = "kcmshell5 kcm_kscreen";
+	var comando = "rm -f /tmp/regataos-prime/reverse-prime.txt; /opt/regataos-prime/scripts/reverse-prime/reverse-prime.sh start";
 	console.log(comando);
 	exec(comando,function(error,call,errlog){
 	});
 }
 
 function reverse_prime(){
-
 const fs = require('fs');
 fs.access('/tmp/regataos-prime/reverse-prime.txt', (err) => {
 if (!err) {
@@ -49,7 +40,7 @@ console.error('myfile already exists');
 // Set iGPU or dGPU
 function dgpu_on(){
 	const exec = require('child_process').exec;
-	var comando = "echo set-dgpu > /tmp/regataos-prime/renderer-dgpu.txt; /usr/share/regataos/gpu/prime/reverse-prime/reverse-prime.sh start";
+	var comando = "echo set-dgpu > /tmp/regataos-prime/renderer-dgpu.txt; /opt/regataos-prime/scripts/reverse-prime/reverse-prime.sh start";
 	console.log(comando);
 	exec(comando,function(error,call,errlog){
 	});
@@ -57,7 +48,7 @@ function dgpu_on(){
 
 function dgpu_off(){
 	const exec = require('child_process').exec;
-	var comando = "rm -f /tmp/regataos-prime/renderer-dgpu.txt; /usr/share/regataos/gpu/prime/reverse-prime/reverse-prime.sh start";
+	var comando = "rm -f /tmp/regataos-prime/renderer-dgpu.txt; /opt/regataos-prime/scripts/reverse-prime/reverse-prime.sh start";
 	console.log(comando);
 	exec(comando,function(error,call,errlog){
 	});

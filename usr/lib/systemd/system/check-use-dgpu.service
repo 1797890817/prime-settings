@@ -1,10 +1,9 @@
 [Unit]
 Description=Check the current status of dGPU
-ConditionPathExists=/tmp/regataos-prime/use-hybrid-graphics.txt
 Before=display-manager.service
 
 [Service]
-ExecStart=/usr/bin/regataos-check-use-dgpu
+ExecStart=/opt/regataos-prime/scripts/check-use-dgpu
 
 [Install]
 WantedBy=graphical.target

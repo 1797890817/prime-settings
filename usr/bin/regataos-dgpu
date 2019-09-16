@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Set Vulkan
-if test -e /opt/regataos-vulkan/icd.d ; then
-	echo Set Vulkan > /tmp/regataos-prime/vulkan-hybrid-graphics.txt
-	sudo /usr/share/regataos/gpu/prime/vulkan-hybrid-graphics start
+# Set Vulkan for dGPU
+echo Set Vulkan > /tmp/regataos-prime/vulkan-hybrid-graphics.txt
+sudo /opt/regataos-prime/scripts/vulkan-hybrid-graphics start
 sleep 3
-fi
 
+# Start notifications
 echo Running with dGPU > /tmp/regataos-prime/run-dgpu.txt
 
+# Run the application with the dGPU
 if test -e /tmp/regataos-prime/nvidia-driver.txt ; then
 	echo "NVIDIA PRIME Render Offload"
 	echo Running with dGPU NVIDIA > /tmp/regataos-prime/run-dgpu-nvidia.txt
@@ -20,8 +20,6 @@ else
 	env DRI_PRIME=1 "$@"
 fi
 
-# Clear cache
-if test -e /opt/regataos-vulkan/icd.d ; then
-	rm -f "/tmp/regataos-prime/vulkan-hybrid-graphics.txt"
-	sudo /usr/share/regataos/gpu/prime/vulkan-hybrid-graphics start
-fi
+# Set Vulkan for iGPU
+rm -f "/tmp/regataos-prime/vulkan-hybrid-graphics.txt"
+sudo /opt/regataos-prime/scripts/vulkan-hybrid-graphics start

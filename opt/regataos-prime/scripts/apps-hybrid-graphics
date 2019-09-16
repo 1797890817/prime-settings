@@ -1,32 +1,21 @@
 #!/bin/bash
 
-# Check for hybrid graphics
+# Check for hybrid graphics support
 if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
 
+# Make sure dGPU is enabled for all apps or not and run tasks
 if test -e /tmp/regataos-prime/noapps-hybrid-graphics.txt ; then
 
-	echo "Do not open applications automatically with discrete GPU."
-
 	# Disable the Hybrid Graphics Automatic feature for all applications.
-	/bin/sh /usr/share/regataos/gpu/prime/noapps-hybrid-graphics
-
-	# Open apps with hybrid graphics manually
-	cp -f /usr/share/kservices5/ServiceMenus/prime-gpu.desktop /usr/share/kservices5/ServiceMenus/prime-gpu.desktop
-
-	# desktop file for prime settings
-	cp -f /usr/share/applications/prime-settings.desktop /usr/share/applications/prime-settings.desktop
+	echo "Do not open applications automatically with dGPU."
+	/bin/sh /opt/regataos-prime/scripts/noapps-hybrid-graphics
 
 else
 
-	# Open apps with hybrid graphics manually
-	cp -f /usr/share/kservices5/ServiceMenus/prime-gpu.desktop /usr/share/kservices5/ServiceMenus/prime-gpu.desktop
-
-	# desktop file for prime settings
-	cp -f /usr/share/applications/prime-settings.desktop /usr/share/applications/prime-settings.desktop
-
+	# Search username
 	kmsg=$(users | cut -d ' ' -f 1)
-	echo $kmsg
 
+	# Directory where the .desktop files are located
 	test -f "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs" && source "${XDG_CONFIG_HOME:-/home/$kmsg/.config}/user-dirs.dirs"
 	DESKTOP_DIR="${XDG_DESKTOP_DIR:-/home/$kmsg/Desktop}"
 	kmsg2=$(echo $DESKTOP_DIR | cut -d/ -f 3-)
@@ -38,7 +27,7 @@ else
 	APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
 	SNAP_DIR=/var/lib/snapd/desktop/applications
 
-## Games [
+## Games {
 
 	# steam
 	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-steam.txt ; then
@@ -703,13 +692,6 @@ else
 
 fi
 
-# Update desktop cache
-#update-desktop-database
-#sleep 5
-#update-desktop-database
-
 else
-
 	echo "There seems to be no hybrid graphics."
-
 fi

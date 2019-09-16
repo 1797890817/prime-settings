@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# First of all, check out if it's the Regata OS
+kmsg=$(grep -r NAME /etc/os-release)
+if [[ $kmsg == *"Regata OS"* ]]; then
+
 # Set Vulkan to discrete GPU
 if test -e /tmp/regataos-prime/vulkan-hybrid-graphics.txt ; then
 if test -e /opt/regataos-vulkan/icd.d ; then
@@ -125,4 +129,6 @@ else
         fi
     fi
 fi
+fi
+
 fi

@@ -16,6 +16,16 @@ body{
 	src: url('Oxygen.otf') format('truetype');
 }
 
+/* Display content when everything is ready */
+#loadscreen {
+	display: block;
+	width: 100%;
+	height: 70%;
+	position: absolute;
+	background-color: #1d2329;
+	z-index: 10000;
+}
+
 /* pages css */
 #settings {
 	display: auto;
@@ -128,6 +138,50 @@ li:hover {
 	background: #2e3539;
 }
 
+/* All CSS buttom click */
+#buttom-click {
+	cursor: pointer;
+}
+
+li#buttom-click:active {
+	background: #272e33;
+	box-shadow: 0 0px 0px rgba(0,0,0,.15);
+	transition: all .2s;
+}
+
+.kscreen-desc {
+	position: absolute;
+	top: 40px;
+	left: 20px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+
+.info-item {
+	position: absolute;
+	top: 40px;
+	left: 20px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+	max-width: 34ch;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* CSS nvidia-driver */
+#use-nvidia-click {
+	cursor: pointer;
+}
+
+li#use-nvidia-click:active {
+	background: #272e33;
+	box-shadow: 0 0px 0px rgba(0,0,0,.15);
+	transition: all .2s;
+}
+
 #separator1 {
 	height: 40px;
 	margin-bottom: 130px;
@@ -221,13 +275,13 @@ p {
 .icone-menu {
 	display: inline-block;
 	float: left;
-	height: 25px;
-	width: 25px;
+	height: 22px;
+	width: 22px;
 	background-position: 50% 50%;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	margin-left: 10px;
-	margin-top: 5px;
+	margin-top: 6px;
 }
 
 .div1 {
@@ -272,12 +326,65 @@ p {
 }
 
 /* menu CSS */
+#pop-up {
+	display: none;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 35, 41, 0.63);
+    position: fixed;
+    top: 0px;
+	opacity: 1;
+	animation-name: example;
+	animation-duration: .5s;
+    z-index: 30000;
+}
+
+@keyframes example {
+  from {opacity: 0.5;}
+  to {opacity: 1;}
+}
+
+#pop-up:hover {
+opacity: 1;
+}
+
+#box-pop-up {
+	position: relative;
+    width: 400px;
+    height: 170px;
+    background-color: #1d2329;
+	margin: auto;
+	margin-top: 80px;
+	padding: 10px 15px 15px 15px;
+	box-shadow: 0px 1px 10px 2px rgba(0,0,0,0.3);
+}
+
+#box-pop-up h3 {
+    text-align: center;
+	font-weight: 300;
+	width: 100%;
+    top: 0px;
+    margin: auto;
+	margin-bottom: 5px;
+}
+
+#button-close {
+	cursor: pointer;
+	float: right;
+    width: 17px;
+    height: 17px;
+	margin-top: 7px;
+}
+
+/* menu CSS */
 .div3 {
 	position: fixed;
 	width: 100%;
 	height: 45px;
 	bottom: 0;
 	background: linear-gradient(90deg, #9c9ea1 0%, #f0f0f0 50%, #b1b3b5 100%);
+	z-index: 20000;
 }
 
 #menu {

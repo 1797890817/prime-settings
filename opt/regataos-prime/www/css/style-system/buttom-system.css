@@ -84,38 +84,8 @@
 	transform: translateX(20px);
 }
 
-/* CSS kinfocenter */
-#kinfocenter {
-	cursor: pointer;
-}
-
-li#kinfocenter:active {
-	background: #272e33;
-	box-shadow: 0 0px 0px rgba(0,0,0,.15);
-	transition: all .2s;
-}
-
-.kinfocenter-desc {
-	position: absolute;
-	top: 40px;
-	left: 20px;
-	font-size: 13px;
-	font-weight: 600;
-	color: #adabab;
-}
-
-/* CSS teste-dgpu */
-#teste-dgpu {
-	cursor: pointer;
-}
-
-li#teste-dgpu:active {
-	background: #272e33;
-	box-shadow: 0 0px 0px rgba(0,0,0,.15);
-	transition: all .2s;
-}
-
-.teste-dgpu-desc {
+/* CSS nvidia-driver */
+.use-nvidia-version {
 	position: absolute;
 	top: 40px;
 	left: 20px;

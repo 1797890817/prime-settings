@@ -5,6 +5,7 @@ cd /
 while :
 do
 
+# Display desktop notifications when prompted
 if test -e /tmp/regataos-prime/run-dgpu.txt ; then
 
 	if test -e /tmp/regataos-prime/using-dgpu.txt ; then
