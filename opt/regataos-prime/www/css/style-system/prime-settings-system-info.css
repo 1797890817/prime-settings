@@ -18,6 +18,11 @@
 	content: "dgpuhere";
 }
 
+/* iGPU info css */
+.igpu-info:before {
+	content: "igpuhere";
+}
+
 /* Operational System info css */
 .os-info:before {
 	content: "oshere";

@@ -3,6 +3,7 @@
 # First of all, check out if it's the Regata OS
 kmsg=$(grep -r NAME /etc/os-release)
 if [[ $kmsg == *"Regata OS"* ]]; then
+echo "$kmsg OK!"
 
 # Set Vulkan to discrete GPU
 if test -e /tmp/regataos-prime/vulkan-hybrid-graphics.txt ; then

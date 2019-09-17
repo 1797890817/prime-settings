@@ -234,6 +234,9 @@ p {
 	line-height: 1.4;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .text-app1 {
@@ -463,6 +466,14 @@ li {
 	display: inline-block;
 	width: 220px;
 	height: 40px;
+}
+
+.info-item {
+	max-width: 30ch;
+}
+
+.text-app {
+	max-width: 30ch;
 }
 
 li#selecte-gpu {

@@ -12,7 +12,7 @@ fi
 
 # Check for hybrid graphics support
 #Identify dGPU
-kmsg=$(inxi -G | grep Card-2)
+kmsg=$(inxi -G | egrep -i "Card-2|Device-2")
 
 if [[ $kmsg == *"AMD"* ]]; then
 	echo "Hybrid graphics detected"
@@ -65,11 +65,26 @@ elif [[ $kmsg == *"NVIDIA"* ]]; then
 
 		# Copy xorg config files
 		if test -e /usr/bin/nvidia-xconfig ; then
-			cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
-			cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
-			cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
-			cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
+			#Identify NVIDIA driver version
+			nvidiaversion=$(nvidia-smi -i 0 --query-gpu=driver_version --format=csv,noheader)
+			driversupported=$(echo $nvidiaversion | cut -d. -f -1)
+
+			if [ $driversupported -ge 435 ]; then
+				echo "NVIDIA driver version: $nvidiaversion (supported)"
+				cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
+				cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
+				cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
+				cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
+			else
+				echo "NVIDIA driver version: $nvidiaversion (not supported)"
+				rm -f "/usr/share/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf"
+				rm -f "/usr/share/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf"
+				rm -f "/etc/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf"
+				rm -f "/etc/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf"
+				
+			fi
 		fi
+
 	fi
 
 elif [[ $kmsg == *"GeForce"* ]]; then
@@ -99,11 +114,26 @@ elif [[ $kmsg == *"GeForce"* ]]; then
 
 		# Copy xorg config files
 		if test -e /usr/bin/nvidia-xconfig ; then
-			cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
-			cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
-			cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
-			cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
+			#Identify NVIDIA driver version
+			nvidiaversion=$(nvidia-smi -i 0 --query-gpu=driver_version --format=csv,noheader)
+			driversupported=$(echo $nvidiaversion | cut -d. -f -1)
+
+			if [ $driversupported -ge 435 ]; then
+				echo "NVIDIA driver version: $nvidiaversion (supported)"
+				cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
+				cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /usr/share/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
+				cp -f /opt/regataos-prime/all-files/10-intel-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf
+				cp -f /opt/regataos-prime/all-files/10-amdgpu-nvidia-drm-outputclass.conf /etc/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf
+			else
+				echo "NVIDIA driver version: $nvidiaversion (not supported)"
+				rm -f "/usr/share/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf"
+				rm -f "/usr/share/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf"
+				rm -f "/etc/X11/xorg.conf.d/10-intel-nvidia-drm-outputclass.conf"
+				rm -f "/etc/X11/xorg.conf.d/10-amdgpu-nvidia-drm-outputclass.conf"
+				
+			fi
 		fi
+
 	fi
 
 else
@@ -114,23 +144,6 @@ fi
 
 # Check for hybrid graphics support
 if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
-	# Open apps with hybrid graphics manually
-	cp -f /opt/regataos-prime/all-files/prime-gpu.desktop /usr/share/kservices5/ServiceMenus/prime-gpu.desktop
-
-	# Create .desktop file for prime settings
-	cp -f /opt/regataos-prime/all-files/prime-settings.desktop /usr/share/applications/prime-settings.desktop
-
 	# Run script with supported apps whitelist
-	sh /opt/regataos-prime/scripts/apps-hybrid-graphics
-
-	#Collect hardware information for PRIME Settings
-	sh /opt/regataos-prime/scripts/prime-settings-system-info.sh
-
-elif test -e /tmp/regataos-prime/not-hybrid-graphics.txt ; then
-	# Remove .desktop file for prime settings
-	rm -f "/usr/share/kservices5/ServiceMenus/prime-gpu.desktop"
-	rm -f "/usr/share/applications/prime-settings.desktop"
-
-else
-	echo "Settings not detected"
+	/opt/regataos-prime/scripts/apps-hybrid-graphics start
 fi

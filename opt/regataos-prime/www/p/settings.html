@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="./../js/update-css.js"></script>
 	<script type="text/javascript" src="./../js/fade.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/prime-settings.js"></script>
-	<script type="text/javascript" src="./../js/check-apps/check-nvidia.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/check-system.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/reverse-prime.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/settings.js"></script>
 				<!-- all js files for update-css.js -->
@@ -26,7 +26,7 @@
 	<script type="text/javascript" src="./../js/actions-apps/photo.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/video-editor.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/all-apps.js"></script>
-	
+
 	<script type="text/javascript">
 		//close_popup
 		function close_popup(){
@@ -61,7 +61,7 @@
 			<li id="selecte-gpu">
 				<div class="text-app">Renderizar com a GPU:</div><select class="selectnav" id="selectnav1" onchange="changeFunc(value);"><option value="1">Ingetrada</option><option value="2">Dedicada</option></select><select class="selectnav" id="selectnav2" onchange="changeFunc(value);"><option value="2">Dedicada</option><option value="1">Ingetrada</option></select><span class='reverse-prime-igpu'>Economia de energia</span><span class='reverse-prime-dgpu'>Alta performance</span>
 			</li>
-			<li id="buttom-click" onclick="kscreen();">
+			<li id="buttom-click" onclick="display();">
 				<div class="text-app">Configurações de tela</div><span class='info-item'>Gerencie e configure monitores e telas</span>
 			</li>
 			<li id="use-nvidia-click" onclick="nvidia_driver();">

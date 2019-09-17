@@ -2,8 +2,8 @@
 all_apps_buttom();
 // }
 
-//ALL APPS BUTTOM {
-check_nvidia();
+//Check system {
+check_system();
 // }
 
 //Reverse Prime BUTTOM {

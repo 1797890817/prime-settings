@@ -34,13 +34,14 @@ else
 	ln -s /usr/bin/regataos-dgpu /usr/bin/prime-dgpu
 fi
 
-# Start service
+# Start systemd service
 systemctl enable  detect-hybrid-graphics.service || true
-systemctl stop    detect-hybrid-graphics.service || true
 systemctl start   detect-hybrid-graphics.service || true
 systemctl restart detect-hybrid-graphics.service || true
 
-systemctl enable  regataos-check-use-dgpu.service || true
-systemctl stop    regataos-check-use-dgpu.service || true
-systemctl start   regataos-check-use-dgpu.service || true
-systemctl restart regataos-check-use-dgpu.service || true
+systemctl enable  check-use-dgpu.service || true
+systemctl start   check-use-dgpu.service || true
+systemctl restart check-use-dgpu.service || true
+
+# Update icons
+update-desktop-database

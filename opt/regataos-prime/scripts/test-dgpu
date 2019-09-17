@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Check for hybrid graphics support
+if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
+
 case $1 in
    "-gl") GALLIUM_HUD_PERIOD=1 GALLIUM_HUD="simple,GPU-load,VRAM-usage,memory-clock,shader-clock,cpu,temperature,fps" regataos-dgpu glxgears
          ;;
@@ -9,3 +12,17 @@ case $1 in
       exit 1
       ;;
 esac
+
+else
+
+case $1 in
+   "-gl") GALLIUM_HUD_PERIOD=1 GALLIUM_HUD="simple,GPU-load,VRAM-usage,memory-clock,shader-clock,cpu,temperature,fps" glxgears
+         ;;
+   "-vk") vkcube
+         ;;
+   *) echo "Invalid option!"
+      exit 1
+      ;;
+esac
+
+fi

@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/pop-up.css">
 	<link rel="stylesheet" type="text/css" href="css/style-buttom-all/buttom-switch-all-apps.css">
 	<link rel="stylesheet" type="text/css" href="css/style-buttom-switch/buttom-switch-games.css">
 	<link rel="stylesheet" type="text/css" href="css/style-buttom-switch/buttom-switch-photo.css">
@@ -26,6 +27,21 @@
 	<script type="text/javascript" src="js/actions-apps/all-apps.js"></script>
 								<!-- js pages -->
 	<script type="text/javascript" src="js/check-apps/prime-settings.js"></script>
+	<script type="text/javascript" src="js/check-apps/check-system.js"></script>
+
+	<script type="text/javascript">
+		//close_popup_nv
+		function close_popup_nv(){
+			document.getElementById("pop-up-nv").style.display = "none";
+		}
+
+		//close_popup_hw
+		function close_popup_hw(){
+			document.getElementById("pop-up-hw").style.display = "none";
+		}
+
+	</script>
+
 </head>
 <body>
 
@@ -34,6 +50,7 @@
 		<p class="pdiv1">Escolha quais aplicativos devem ser executados com a GPU dedicada do seu dispositivo.</p>
 	</div>
 
+	<div id="loadscreen"></div>
 	<div class="all-apps">
 		<div class="text-all-apps">Desativar para todos os aplicativos</div><div class="switch__container2">
 			<input id="switch-shadow-all-apps" class="switch switch--shadow-all-apps" type="checkbox" onclick="click_all();">
@@ -46,7 +63,24 @@
 			<label for="switch-shadow2-all-apps"></label></div>
 	</div>
 
-	<div id='loadscreen'></div>
+	<div id="pop-up-nv">
+		<div id="box-pop-up">
+			<div id="button-close" onclick="close_popup_nv();" style="background-image:url(./images/close.png); background-repeat: no-repeat; background-size: 17px 17px;" title="Fechar" alt="Fechar"></div>
+			<h3>PRIME Render Offload não é suportado</h3>
+			<p>A versão do driver NVIDIA instalada no sistema não possui suporte para o "PRIME Render Offload". O recurso só é suportado a partir da série de drivers NVIDIA 435.</p>
+			<div class="pop-up-ok" onclick="close_popup_nv();">OK</div>
+		</div>
+	</div>
+
+	<div id="pop-up-hw">
+		<div id="box-pop-up">
+			<div id="button-close" onclick="close_popup_hw();" style="background-image:url(./images/close.png); background-repeat: no-repeat; background-size: 17px 17px;" title="Fechar" alt="Fechar"></div>
+			<h3>Hardware não suportado</h3>
+			<p>O seu hardware parece não ter suporte para o "PRIME Render Offload". Atualmente, o recurso é suportado em laptops com gráficos hibridos da AMD ou NVIDIA.</p>
+			<div class="pop-up-ok" onclick="close_popup_hw();">OK</div>
+		</div>
+	</div>
+
 	<div class="div2">
 
 		<ul class="apps-bottom">

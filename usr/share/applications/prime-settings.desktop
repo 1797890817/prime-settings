@@ -1,0 +1,25 @@
+[Desktop Entry]
+Categories=Qt;KDE;Utility;Accessibility;
+Comment[pt_BR]=Ferramenta para configurar os gráficos hibridos
+Comment=Ferramenta para configurar os gráficos hibridos
+Comment[en_US]=Configure hybrid graphics
+Exec=bash -x prime-settings
+GenericName[pt_BR]=Ferramenta para configurar os gráficos hibridos
+GenericName=Ferramenta para configurar os gráficos hibridos
+GenericName[en_US]=Configure hybrid graphics
+Icon=prime-settings
+MimeType=
+Name[pt_BR]=PRIME Settings
+Name=PRIME Settings
+Name[en_US]=PRIME Settings
+Path=
+StartupNotify=true
+StartupWMClass=PRIME Settings
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-Protocols=skype
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,9 +1,9 @@
 // settings page options
 
-//open kscreen
-function kscreen(){
+//open display
+function display(){
 	const exec = require('child_process').exec;
-	var comando = "kcmshell5 kcm_kscreen";
+	var comando = "/opt/regataos-prime/scripts/run-tools-de -display";
 	console.log(comando);
 	exec(comando,function(error,call,errlog){
 	});
@@ -21,7 +21,7 @@ function nvidia_driver(){
 //open dgpu-teste
 function teste_dgpu_gl(){
 	const exec = require('child_process').exec;
-	var comando = 'sh /opt/regataos-prime/scripts/test-dgpu -gl';
+	var comando = '/opt/regataos-prime/scripts/test-dgpu -gl';
 	console.log(comando);
 	exec(comando,function(error,call,errlog){
 	});
@@ -29,7 +29,7 @@ function teste_dgpu_gl(){
 
 function teste_dgpu_vk(){
 	const exec = require('child_process').exec;
-	var comando = 'sh /opt/regataos-prime/scripts/test-dgpu -vk';
+	var comando = '/opt/regataos-prime/scripts/test-dgpu -vk';
 	console.log(comando);
 	exec(comando,function(error,call,errlog){
 	});

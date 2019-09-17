@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="./../js/fade.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/system.js"></script>
 				<!-- all js files for update-css.js -->
-	<script type="text/javascript" src="./../js/check-apps/check-nvidia.js"></script>
+	<script type="text/javascript" src="./../js/check-apps/check-system.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/all-apps.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/all-apps-reload.js"></script>
 	<script type="text/javascript" src="./../js/check-apps/games.js"></script>
@@ -37,7 +37,7 @@
 	<div class="div2">
 		<ul>
 			<li id="use-nvidia">
-				<div class="text-app">Driver NVIDIA</div><span class='nvidia-driver-info info-item'></span>
+				<div class="text-app">Versão do NVIDIA Driver</div><span class='nvidia-driver-info info-item'></span>
 			</li>
 			<li>
 				<div class="text-app">Chipset gráfico</div><span class='dgpu-info info-item'></span>
@@ -54,10 +54,13 @@
 			<li>
 				<div class="text-app">Modelo da CPU</div><span class='cpu-info info-item'></span>
 			</li>
-			<li>
-				<div class="text-app">Versão da pilha gráfica Mesa</div><span class='mesa-info info-item'></span>
+			<li id="primeon">
+				<div class="text-app">Gráficos integrados</div><span class='igpu-info info-item'></span>
 			</li>
-			<li id="buttom-click" onclick="kinfocenter();">
+			<li>
+				<div class="text-app">Versão do Mesa Driver</div><span class='mesa-info info-item'></span>
+			</li>
+			<li id="buttom-click" onclick="info();">
 				<div class="text-app">Mais detalhes sobre o sistema</div><span class='info-item'>Centro de informações do sistema</span>
 			</li>
 		</ul>

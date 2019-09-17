@@ -8,7 +8,7 @@ if test -e /tmp/regataos-prime/noapps-hybrid-graphics.txt ; then
 
 	# Disable the Hybrid Graphics Automatic feature for all applications.
 	echo "Do not open applications automatically with dGPU."
-	/bin/sh /opt/regataos-prime/scripts/noapps-hybrid-graphics
+	sudo /opt/regataos-prime/scripts/noapps-hybrid-graphics start
 
 else
 

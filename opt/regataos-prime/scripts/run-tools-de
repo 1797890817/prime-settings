@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Check for hybrid graphics support
+CURRENT_DESKTOP=$(echo $XDG_CURRENT_DESKTOP)
+
+if [[ $CURRENT_DESKTOP == *"KDE"* ]]; then
+
+case $1 in
+   "-info") kinfocenter
+         ;;
+   "-display") kcmshell5 kcm_kscreen
+         ;;
+   *) echo "Invalid option!"
+      exit 1
+      ;;
+esac
+
+elif [[ $CURRENT_DESKTOP == *"ubuntu:GNOME"* ]]; then
+
+case $1 in
+   "-info") gnome-control-center info
+         ;;
+   "-display") gnome-control-center display
+         ;;
+   *) echo "Invalid option!"
+      exit 1
+      ;;
+esac
+
+elif [[ $CURRENT_DESKTOP == *"GNOME"* ]]; then
+
+case $1 in
+   "-info") gnome-control-center info
+         ;;
+   "-display") gnome-control-center display
+         ;;
+   *) echo "Invalid option!"
+      exit 1
+      ;;
+esac
+
+else
+	echo "Desktop Environment not supported!"
+fi

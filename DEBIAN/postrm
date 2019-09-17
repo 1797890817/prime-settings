@@ -4,13 +4,14 @@
 # Remove files created during installation
 rm -f "/opt/magma/regataosprime"
 rm -f "/usr/bin/regataosprime"
-rm -f "/usr/share/kservices5/ServiceMenus/prime-gpu.desktop"
-rm -f "/usr/share/applications/prime-settings.desktop"
 rm -f "/usr/bin/prime-dgpu"
 
-# Stop all PRIME Settings services
+# Start systemd service
 systemctl stop    detect-hybrid-graphics.service || true
 systemctl disable detect-hybrid-graphics.service || true
 
-systemctl stop    regataos-check-use-dgpu.service || true
-systemctl disable regataos-check-use-dgpu.service || true
+systemctl stop    check-use-dgpu.service || true
+systemctl disable check-use-dgpu.service || true
+
+# Update icons
+update-desktop-database
