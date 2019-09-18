@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Update system info
-sudo /opt/regataos-prime/scripts/system-info.sh start
-
 # Check the list of supported apps
 sudo /opt/regataos-prime/scripts/apps-hybrid-graphics start &> /dev/null
 
 # Make sure dGPU is off for at least one app
 /opt/regataos-prime/scripts/all-apps-files.sh start &> /dev/null
 
+# Display hardware information
+cat /tmp/regataos-prime/prime-info.txt
+
 # Finally, run PRIME Settings
-regataosprime /opt/regataos-prime &> /dev/null
+regataosprime /opt/regataos-prime
 
 # Clear
 rm -f "/tmp/regataos-prime/nvidia-driver-notify.txt"

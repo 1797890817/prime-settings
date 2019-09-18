@@ -43,5 +43,8 @@ systemctl enable  check-use-dgpu.service || true
 systemctl start   check-use-dgpu.service || true
 systemctl restart check-use-dgpu.service || true
 
+# Update system info
+sudo /opt/regataos-prime/scripts/system-info.sh start
+
 # Update icons
 update-desktop-database
