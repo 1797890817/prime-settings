@@ -18,7 +18,7 @@ esac
 elif [[ $CURRENT_DESKTOP == *"ubuntu:GNOME"* ]]; then
 
 case $1 in
-   "-info") gnome-control-center info
+   "-info") gnome-control-center info-overview
          ;;
    "-display") gnome-control-center display
          ;;
@@ -30,7 +30,7 @@ esac
 elif [[ $CURRENT_DESKTOP == *"GNOME"* ]]; then
 
 case $1 in
-   "-info") gnome-control-center info
+   "-info") gnome-control-center info-overview
          ;;
    "-display") gnome-control-center display
          ;;

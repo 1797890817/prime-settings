@@ -30,7 +30,7 @@ function blender_buttom() {
 			console.error('myfile already exists');
 		return;
 		} else {
-			$("blender").css("display", "none")
+			$("#blender").css("display", "none")
 		}
 		});
 	}
