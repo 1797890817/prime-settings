@@ -7,7 +7,7 @@ sudo /opt/regataos-prime/scripts/apps-hybrid-graphics start &> /dev/null
 /opt/regataos-prime/scripts/all-apps-files.sh start &> /dev/null
 
 # Display hardware information
-cat /tmp/regataos-prime/prime-info.txt
+sudo /opt/regataos-prime/scripts/system-info.sh start
 
 # Finally, run PRIME Settings
 regataosprime /opt/regataos-prime
