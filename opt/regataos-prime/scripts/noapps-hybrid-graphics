@@ -34,6 +34,16 @@ APPS_LOCAL_DIR=/home/$kmsg/.local/share/applications
 	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/supertuxkart.desktop"
 	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/supertuxkart.desktop"
 
+	# retroarch
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/retroarch.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/retroarch.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$SNAP_DIR/retroarch_retroarch.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/retroarch_retroarch.desktop"
+
+	# lutris
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/net.lutris.Lutris.desktop"
+	sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/net.lutris.Lutris.desktop"
+
 # }
 
 # Photo {

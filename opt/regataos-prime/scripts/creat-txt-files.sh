@@ -11,6 +11,8 @@
 	echo supertuxkart > /tmp/regataos-prime/noapps-hybrid-graphics-supertuxkart.txt
 	# retroarch
 	echo retroarch > /tmp/regataos-prime/noapps-hybrid-graphics-retroarch.txt
+	# lutris
+	echo lutris > /tmp/regataos-prime/noapps-hybrid-graphics-lutris.txt
 # }
 
 # PHOTO {

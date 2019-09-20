@@ -153,3 +153,39 @@ function retroarch_buttom() {
 	}
 	});
 }
+
+// lutris
+function lutris_buttom() {
+	const fs = require('fs');
+	fs.access('/tmp/regataos-prime/noapps-hybrid-graphics-lutris.txt', (err) => {
+	if (!err) {
+		console.error('myfile already exists');
+		$(".switch--shadow2-lutris + label").css("display", "block")
+		$(".switch--shadow-lutris + label").css("display", "none")
+		$(".lutris-off").css("display", "block")
+		$(".lutris-on").css("display", "none")
+	return;
+	} else {
+		$(".switch--shadow2-lutris + label").css("display", "none")
+		$(".switch--shadow-lutris + label").css("display", "block")
+		$(".lutris-off").css("display", "none")
+		$(".lutris-on").css("display", "block")
+	}
+	});
+
+	fs.access(APPS_DIR+'/net.lutris.Lutris.desktop', (err) => {
+	if (!err) {
+		console.error('myfile already exists');
+	return;
+	} else {
+		fs.access(SNAP_DIR+'/net.lutris.Lutris.desktop', (err) => {
+		if (!err) {
+			console.error('myfile already exists');
+		return;
+		} else {
+			$("#lutris").css("display", "none")
+		}
+		});
+	}
+	});
+}

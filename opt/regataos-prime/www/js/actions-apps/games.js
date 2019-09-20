@@ -170,3 +170,37 @@ fs.access(dir+'noapps-hybrid-graphics-retroarch.txt', (err) => {
 }
 });
 }
+
+// lutris
+function lutris_enable(){
+	const exec = require('child_process').exec;
+	var comando = "rm -f "+dir+"noapps-hybrid-graphics-lutris.txt; sudo "+dir2+"apps-hybrid-graphics start";
+	console.log(comando);
+	exec(comando,function(error,call,errlog){
+	});
+}
+
+function lutris_disable(){
+	const exec = require('child_process').exec;
+	var comando = "echo lutris > "+dir+"noapps-hybrid-graphics-lutris.txt; echo all-apps > "+dir+"all-apps-dri.txt; sudo "+dir2+"apps-hybrid-graphics start";
+	console.log(comando);
+	exec(comando,function(error,call,errlog){
+	});
+}
+
+function lutris(){
+	const fs = require('fs');
+fs.access(dir+'noapps-hybrid-graphics-lutris.txt', (err) => {
+  if (!err) {
+	console.error('myfile already exists');
+	lutris_enable();
+		$(".lutris-off").css("display", "none")
+		$(".lutris-on").css("display", "block")
+	return;
+} else {
+	lutris_disable();
+		$(".lutris-off").css("display", "block")
+		$(".lutris-on").css("display", "none")
+}
+});
+}

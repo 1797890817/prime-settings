@@ -513,3 +513,106 @@
 	font-weight: 600;
 	color: #adabab;
 }
+
+/* lutris */
+/* on */
+.switch--shadow-lutris+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow-lutris + label:before,
+.switch--shadow-lutris + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow-lutris + label:before {
+	right: 1px;
+	background-color: #5f6265;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow-lutris + label:after {
+	top: -1px;
+	left: 20px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow-lutris:checked + label:before {
+	background-color: #ddd;
+}
+.switch--shadow-lutris:checked + label:after {
+	transform: translateX(-20px);
+}
+
+/* off */
+.switch--shadow2-lutris+ label {
+	top: -18px;
+	right: -15px;
+	padding: 2px;
+	width: 31px;
+	height: 10px;
+	background-color: #2e3539;
+	border-radius: 60px;
+}
+.switch--shadow2-lutris + label:before,
+.switch--shadow2-lutris + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch--shadow2-lutris + label:before {
+	right: 1px;
+	background-color: #ddd;
+	border-radius: 60px;
+	transition: all 0.4s;
+}
+.switch--shadow2-lutris + label:after {
+	top: -1px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
+}
+.switch--shadow2-lutris:checked + label:before {
+	background-color: #5f6265;
+}
+.switch--shadow2-lutris:checked + label:after {
+	transform: translateX(20px);
+}
+
+/* lutris-on/off text */
+.lutris-on {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}
+.lutris-off {
+	position: absolute;
+	top: 40px;
+	left: 75px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #adabab;
+}

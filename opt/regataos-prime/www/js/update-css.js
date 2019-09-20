@@ -22,6 +22,8 @@ set_renderer_buttom();
 	supertuxkart_buttom();
 	//retroarch
 	retroarch_buttom();
+	//lutris
+	lutris_buttom();
 // }
 
 // 3D MODELING {

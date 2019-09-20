@@ -181,6 +181,32 @@ else
 		fi
 	fi
 
+	# lutris
+	if test -e /tmp/regataos-prime/noapps-hybrid-graphics-lutris.txt ; then
+		# Disable DRI_PRIME for lutris
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$APPS_DIR/net.lutris.Lutris.desktop"
+		sed -i 's/Exec=regataos-dgpu /Exec=/' "$DESKTOP_DIR/net.lutris.Lutris.desktop"
+	else
+		#Configure DRI_PRIME for lutris
+		kmsg=$(grep -r regataos-dgpu $APPS_DIR/net.lutris.Lutris.desktop)
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for lutris"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$APPS_DIR/net.lutris.Lutris.desktop"
+		fi
+
+		kmsg=$(grep -r regataos-dgpu "$DESKTOP_DIR/net.lutris.Lutris.desktop")
+		echo $kmsg
+
+		if [[ $kmsg == *"regataos-dgpu"* ]]; then
+			echo "DRI_PRIME enabled for lutris"
+		else
+			sed -i 's/Exec=/Exec=regataos-dgpu /' "$DESKTOP_DIR/net.lutris.Lutris.desktop"
+		fi
+	fi
+
 ## }
 
 ## Photo {

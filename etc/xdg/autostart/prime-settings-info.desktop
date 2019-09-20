@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment[pt_BR]=
 Comment=
-Exec=sudo /opt/regataos-prime/scripts/system-info.sh start > /tmp/regataos-prime/prime-info.txt
+Exec=sleep 3; sudo /opt/regataos-prime/scripts/system-info.sh start > /tmp/regataos-prime/prime-info.txt
 GenericName[pt_BR]=Notifications for Prime Settings
 GenericName=Notifications for Prime Settings
 MimeType=
