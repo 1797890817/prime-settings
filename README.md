@@ -9,8 +9,8 @@ PRIME Settings is an application developed with web technologies to help Linux u
 ![](https://1.bp.blogspot.com/-8l3jXLNJUpE/XYJ9_yqua5I/AAAAAAAAXio/cuXeKSjL3toFgU1J-4hDMMr3b2ETVDI6QCLcBGAsYHQ/s1600/hardware-info.png)
 
 ## Download packages (DEB)
-[MAGMA](https://drive.google.com/uc?export=download&id=1CEQXWe4BeiTS-0OlTCBGvSXdQ5T8FADN)
-[PRIME Settings](https://drive.google.com/uc?export=download&id=1NuO1YZVx2OTKM8d_67Fn9Yp8Ckl8yrh5)
+- [MAGMA](https://drive.google.com/uc?export=download&id=1CEQXWe4BeiTS-0OlTCBGvSXdQ5T8FADN)
+- [PRIME Settings](https://drive.google.com/uc?export=download&id=1NuO1YZVx2OTKM8d_67Fn9Yp8Ckl8yrh5)
 
 
 ## Supported applications
