@@ -25,43 +25,46 @@
 	<script type="text/javascript" src="./../js/actions-apps/photo.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/video-editor.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/all-apps.js"></script>
+								<!-- js translations -->
+	<script type="text/javascript" src="./../js/translations.js"></script>
 </head>
 <body>
 
 	<div class="div1">
 		<div id="title" class="hdiv1">PRIME Settings</div>
-		<p class="p1-settings">Confira informações do seu sistema ou realize simples testes com a sua GPU dedicada.</p>
+		<p class="p1-system title-system">Confira mais informações sobre o hardware do seu dispositivo.</p>
+		<div id="copy-all" onclick="copy_info();"><div  id="copy-all-img" style="background-image:url(./../images/clip.png); background-repeat: no-repeat; background-size: 17px 17px;"></div><p id="copy-all-txt">Copiar tudo</p></div>
 	</div>
 
 	<div id='loadscreen'></div>
 	<div class="div2">
 		<ul>
 			<li id="use-nvidia">
-				<div class="text-app">Versão do NVIDIA Driver</div><span class='nvidia-driver-info info-item'></span>
+				<div class="text-app nvidia-driver">Versão do NVIDIA Driver</div><span class='nvidia-driver-info info-item'></span>
 			</li>
 			<li>
-				<div class="text-app">Chipset gráfico</div><span class='dgpu-info info-item'></span>
+				<div class="text-app dgpu-name">Chipset gráfico</div><span class='dgpu-info info-item'></span>
 			</li>
 			<li>
-				<div class="text-app">Tamanho da memória de vídeo</div><span class='vram-info info-item'></span>
+				<div class="text-app vram">Tamanho da memória de vídeo</div><span class='vram-info info-item'></span>
 			</li>
 			<li>
-				<div class="text-app">Sistema operacional</div><span class='os-info info-item'></span>
+				<div class="text-app os-name">Sistema operacional</div><span class='os-info info-item'></span>
 			</li>
 			<li>
-				<div class="text-app">Memória do sistema</div><span class='ram-info info-item'></span>
+				<div class="text-app ram">Memória do sistema</div><span class='ram-info info-item'></span>
 			</li>
 			<li>
-				<div class="text-app">Modelo da CPU</div><span class='cpu-info info-item'></span>
+				<div class="text-app cpu">Modelo da CPU</div><span class='cpu-info info-item'></span>
 			</li>
 			<li id="primeon">
-				<div class="text-app">Gráficos integrados</div><span class='igpu-info info-item'></span>
+				<div class="text-app igpu-name">Gráficos integrados</div><span class='igpu-info info-item'></span>
 			</li>
 			<li>
-				<div class="text-app">Versão do Mesa Driver</div><span class='mesa-info info-item'></span>
+				<div class="text-app mesa-driver">Versão do Mesa Driver</div><span class='mesa-info info-item'></span>
 			</li>
 			<li id="buttom-click" onclick="info();">
-				<div class="text-app">Mais detalhes sobre o sistema</div><span class='info-item'>Centro de informações do sistema</span>
+				<div class="text-app more-info">Mais detalhes sobre o sistema</div><span class='info-item more-info-desc'>Centro de informações do sistema</span>
 			</li>
 		</ul>
 	</div>
@@ -70,17 +73,23 @@
 		<ul id="menu">
 			<a href="./../index.html">
 			<li id="apps2">
-				<div class="icone-menu" style="background-image:url(./../images/apps2.png);"></div><p class="p-menu">Aplicativos</p>
+				<div class="button-menu button-apps">
+				<div class="icon-menu" style="background-image:url(./../images/apps2.png);"></div><p class="p-menu apps2">Aplicativos</p>
+				</div>
 			</li>
 			</a>
 			<a href="settings.html">
 			<li id="settings2">
-				<div class="icone-menu" style="background-image:url(./../images/settings3.png);"></div><p class="p-menu">Configurações</p>
+				<div class="button-menu button-settings">
+				<div class="icon-menu" style="background-image:url(./../images/settings3.png);"></div><p class="p-menu settings">Configurações</p>
+				</div>
 			</li>
 			</a>
 			<a href="#">
 			<li id="system">
-				<div class="icone-menu" style="background-image:url(./../images/system2.png);"></div><p class="p-menu">Sistema</p>
+				<div class="button-menu button-system">
+				<div class="icon-menu" style="background-image:url(./../images/system2.png);"></div><p class="p-menu system2">Sistema</p>
+				</div>
 			</li>
 			</a>
 		</ul>

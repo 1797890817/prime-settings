@@ -4,9 +4,9 @@ PRIME Settings is an application developed with web technologies to help Linux u
 
 ### For laptops with NVIDIA's dGPU, you must have the NVIDIA Driver 435.21 or later driver installed.
 
-![](https://4.bp.blogspot.com/-dpWrK4pLQog/XDf8gkSVfUI/AAAAAAAAWJQ/YK8RveMA5SsT5LCa1lwAckOTyBR_tlBagCLcBGAs/s1600/Screenshot_20190110_221015.png)
+![](https://3.bp.blogspot.com/-_5FsYQwfUoM/XYlDPm37BWI/AAAAAAAAXj4/Njc-uS9NKdogw1YUi1-73BNfURBEqv0-gCLcBGAsYHQ/s1600/Screenshot_20190923_163109.png)
 
-![](https://1.bp.blogspot.com/-8l3jXLNJUpE/XYJ9_yqua5I/AAAAAAAAXio/cuXeKSjL3toFgU1J-4hDMMr3b2ETVDI6QCLcBGAsYHQ/s1600/hardware-info.png)
+![](https://4.bp.blogspot.com/-tSM0G8VROBo/XYlAlJZVE4I/AAAAAAAAXjo/gGfKATaTyl0hX0I5rJZ8kGkAmBytGxSEQCLcBGAsYHQ/s1600/Screenshot_20190923_184658.png)
 
 ## Download packages (DEB)
 - [MAGMA](https://drive.google.com/uc?export=download&id=1CEQXWe4BeiTS-0OlTCBGvSXdQ5T8FADN)

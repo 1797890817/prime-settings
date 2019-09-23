@@ -26,6 +26,8 @@
 	<script type="text/javascript" src="./../js/actions-apps/photo.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/video-editor.js"></script>
 	<script type="text/javascript" src="./../js/actions-apps/all-apps.js"></script>
+								<!-- js translations -->
+	<script type="text/javascript" src="./../js/translations.js"></script>
 
 	<script type="text/javascript">
 		//close_popup
@@ -44,7 +46,7 @@
 
 	<div class="div1">
 		<div id="title" class="hdiv1">PRIME Settings</div>
-		<p class="p1-settings">Escolha a melhor configuração para a sua GPU dedicada, configure a tela e execute simples testes.</p>
+		<p class="p1-settings title-settings">Escolha a melhor configuração para a sua GPU dedicada, configure a tela e execute simples testes.</p>
 	</div>
 
 	<div id='loadscreen'></div>
@@ -62,13 +64,13 @@
 				<div class="text-app">Renderizar com a GPU:</div><select class="selectnav" id="selectnav1" onchange="changeFunc(value);"><option value="1">Ingetrada</option><option value="2">Dedicada</option></select><select class="selectnav" id="selectnav2" onchange="changeFunc(value);"><option value="2">Dedicada</option><option value="1">Ingetrada</option></select><span class='reverse-prime-igpu'>Economia de energia</span><span class='reverse-prime-dgpu'>Alta performance</span>
 			</li>
 			<li id="buttom-click" onclick="display();">
-				<div class="text-app">Configurações de tela</div><span class='info-item'>Gerencie e configure monitores e telas</span>
+				<div class="text-app display-settings">Configurações de tela</div><span class='info-item display-settings-info'>Gerencie e configure monitores e telas</span>
 			</li>
 			<li id="use-nvidia-click" onclick="nvidia_driver();">
-				<div class="text-app">Configurações do driver NVIDIA</div><span class='info-item'>Escolha a melhor configuração para a sua GPU</span>
+				<div class="text-app nvidia-settings">Configurações do driver NVIDIA</div><span class='info-item nvidia-settings-info'>Escolha a melhor configuração para a sua GPU</span>
 			</li>
 			<li id="buttom-click" onclick="open_popup();">
-				<div class="text-app">Executar testes com a GPU dedicada</div><span class='info-item'>Rode simples teste com OpenGL ou Vulkan</span>
+				<div class="text-app run-tests">Executar testes com a GPU dedicada</div><span class='info-item run-tests-info'>Rode simples teste com OpenGL ou Vulkan</span>
 			</li>
 		</ul>
 	</div>
@@ -76,12 +78,12 @@
 	<div id="pop-up">
 		<div id="box-pop-up">
 			<div id="button-close" type="button" onclick="close_popup();" style="background-image:url(./../images/close.png); background-repeat: no-repeat; background-size: 17px 17px;" title="Fechar" alt="Fechar"></div>
-			<h3>Testar a GPU dedicada</h3>
-			<p>Execute um teste simples com a GPU dedicada do seu dispositivo, escolhendo uma das opções:</p>
+			<h3 class="popup-title-settings">Testar a GPU dedicada</h3>
+			<p class="popup-desc-settings">Execute um teste simples com a GPU dedicada do seu dispositivo, escolhendo uma das opções:</p>
 			<div class="div-test">
 				<ul>
-					<li class="test-dgpu" onclick="teste_dgpu_gl();"><span>Teste com o OpenGL</span></li>
-					<li class="test-dgpu" onclick="teste_dgpu_vk();"><span>Teste com a Vulkan</span></li>
+					<li class="test-dgpu button-gl" onclick="teste_dgpu_gl();"><span>Teste com o OpenGL</span></li>
+					<li class="test-dgpu button-vk" onclick="teste_dgpu_vk();"><span>Teste com a Vulkan</span></li>
 				</ul>
 			</div>
 		</div>
@@ -91,17 +93,23 @@
 		<ul id="menu">
 			<a href="./../index.html">
 			<li id="apps2">
-				<div class="icone-menu" style="background-image:url(./../images/apps2.png);"></div><p class="p-menu">Aplicativos</p>
+				<div class="button-menu button-apps">
+				<div class="icon-menu" style="background-image:url(./../images/apps2.png);"></div><p class="p-menu apps2">Aplicativos</p>
+				</div>
 			</li>
 			</a>
 			<a href="#">
 			<li id="settings">
-				<div class="icone-menu" style="background-image:url(./../images/settings3.png);"></div><p class="p-menu">Configurações</p>
+				<div class="button-menu button-settings">
+				<div class="icon-menu" style="background-image:url(./../images/settings3.png);"></div><p class="p-menu settings">Configurações</p>
+				</div>
 			</li>
 			</a>
 			<a href="system.html">
 			<li id="system2">
-				<div class="icone-menu" style="background-image:url(./../images/system2.png);"></div><p class="p-menu">Sistema</p>
+				<div class="button-menu button-system">
+				<div class="icon-menu" style="background-image:url(./../images/system2.png);"></div><p class="p-menu system2">Sistema</p>
+				</div>
 			</li>
 			</a>
 		</ul>
