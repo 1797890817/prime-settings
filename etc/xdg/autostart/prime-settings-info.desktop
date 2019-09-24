@@ -1,21 +1,11 @@
 [Desktop Entry]
-Comment[pt_BR]=
-Comment=
-Exec=sleep 3; sudo /opt/regataos-prime/scripts/system-info.sh start > /tmp/regataos-prime/prime-info.txt
-GenericName[pt_BR]=Notifications for Prime Settings
-GenericName=Notifications for Prime Settings
-MimeType=
-Name[pt_BR]=Notifications for Prime Settings
-Name=Notifications for Prime Settings
-NoDisplay=true
-Path=
-StartupNotify=true
+Name=Info for Prime Settings
+GenericName=Info for Prime Settings
+Comment=Info for Prime Settings
+Exec=sudo /opt/regataos-prime/scripts/system-info.sh
 Terminal=false
-TerminalOptions=
+NoDisplay=true
 Type=Application
-X-DBUS-ServiceName=
-X-DBUS-StartupType=
+
 X-GNOME-Autostart-Phase=Initialization
-X-KDE-SubstituteUID=false
-X-KDE-Username=
 X-KDE-autostart-phase=1

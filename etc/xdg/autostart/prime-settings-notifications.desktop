@@ -1,21 +1,11 @@
 [Desktop Entry]
-Comment[pt_BR]=
-Comment=
-Exec=/opt/regataos-prime/notifications/run-notifications
-GenericName[pt_BR]=Notifications for Prime Settings
-GenericName=Notifications for Prime Settings
-MimeType=
-Name[pt_BR]=Notifications for Prime Settings
 Name=Notifications for Prime Settings
-NoDisplay=true
-Path=
-StartupNotify=true
+GenericName=Notifications for Prime Settings
+Comment=Notifications for Prime Settings
+Exec=/opt/regataos-prime/notifications/run-notifications
 Terminal=false
-TerminalOptions=
+NoDisplay=true
 Type=Application
-X-DBUS-ServiceName=
-X-DBUS-StartupType=
+
 X-GNOME-Autostart-Phase=Initialization
-X-KDE-SubstituteUID=false
-X-KDE-Username=
 X-KDE-autostart-phase=1

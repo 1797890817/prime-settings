@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 3;
+
 # Check system language
 language=$(locale | grep LANG)
 
@@ -18,4 +20,4 @@ else
 fi
 
 # Updtae system info
-sudo -H env DISPLAY=:0 /opt/regataos-prime/scripts/prime-settings-system-info.sh
+sudo -H env DISPLAY=:0 /opt/regataos-prime/scripts/prime-settings-system-info.sh > /tmp/regataos-prime/prime-info.txt
