@@ -1,7 +1,7 @@
 Package: prime-settings
-Version: 8.2
+Version: 8.3
 Maintainer: LinuxBuzz Software
-Depends: unar, systemd, magma, inxi, lshw, gnustep-base-common, gnustep-base-runtime, gnustep-common, hddtemp, libgnustep-base1.26, libobjc4, lm-sensors, mesa-utils, tree, xclip
+Depends: unar, systemd, magma, inxi, lshw, gnustep-base-common, gnustep-base-runtime, gnustep-common, hddtemp, libobjc4, lm-sensors, mesa-utils, tree, xclip
 Architecture: amd64
 Section: misc
 Priority: optional
