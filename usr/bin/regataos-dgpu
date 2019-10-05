@@ -3,7 +3,6 @@
 # Set Vulkan for dGPU
 echo Set Vulkan > /tmp/regataos-prime/vulkan-hybrid-graphics.txt
 sudo /opt/regataos-prime/scripts/vulkan-hybrid-graphics start
-sleep 3
 
 # Start notifications
 echo Running with dGPU > /tmp/regataos-prime/run-dgpu.txt
@@ -12,8 +11,8 @@ echo Running with dGPU > /tmp/regataos-prime/run-dgpu.txt
 if test -e /tmp/regataos-prime/nvidia-driver.txt ; then
 	echo "NVIDIA PRIME Render Offload"
 	echo Running with dGPU NVIDIA > /tmp/regataos-prime/run-dgpu-nvidia.txt
-	export GAMEMODERUNEXEC="env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
-	env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"
+	export GAMEMODERUNEXEC="env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
+	env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only "$@"
 else
 	echo "PRIME Render Offload"
 	export GAMEMODERUNEXEC="env DRI_PRIME=1"
