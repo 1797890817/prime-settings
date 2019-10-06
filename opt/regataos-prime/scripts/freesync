@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Generate log file
+exec 2> >(tee -a /var/log/regataos-logs/freesync.log)
+exec 1>&2
+
+# Enable FreeSync
+function enable_freesync() {
+	screen=$(xrandr --prop | grep ' connected' | awk '{print $1}')
+	echo "Enabling FreeSync on $screen"
+	DISPLAY=:0 xrandr --output $screen --set "freesync" 1
+	xrandr --output $screen --set "freesync" 1
+}
+
+# Disable FreeSync
+function disable_freesync() {
+	screen=$(xrandr --prop | grep ' connected' | awk '{print $1}')
+	echo "Disabling FreeSync on $screen"
+	DISPLAY=:0 xrandr --output $screen --set "freesync" 0
+	xrandr --output $screen --set "freesync" 0
+}
+
+case $1 in
+   "on") enable_freesync
+         ;;
+   "off") disable_freesync
+         ;;
+   *) echo "Invalid option!"
+      exit 1
+      ;;
+esac

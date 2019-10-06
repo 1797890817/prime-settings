@@ -59,6 +59,10 @@ $(".popup-desc-settings").text("Run a simple test with your device's dedicated G
 $(".button-gl").text("Test with OpenGL");
 $(".button-vk").text("Test with Vulkan");
 
+//FreeSync
+$(".freesync-on").text("FreeSync enabled");
+$(".freesync-off").text("FreeSync disabled");
+
 // System
 //Session title settings
 $(".title-system").text("Check out more information about your device hardware.");

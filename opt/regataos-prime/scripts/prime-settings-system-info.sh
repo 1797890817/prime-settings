@@ -25,7 +25,7 @@ if test -e /usr/bin/nvidia-xconfig ; then
 	memoryvideo=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader | sed 's/MiB/ MB/')
 	echo "VRAM: $memoryvideo"
 else
-	memoryvideo=$(DRI_PRIME=1 glxinfo | egrep -i 'device|memory' | grep 'Dedicated video memory' | head -n 1 | cut -d: -f 2-)
+	memoryvideo=$(DRI_PRIME=1 glxinfo | egrep -i 'device|memory' | grep 'Video memory' | head -n 1 | cut -d: -f 2-)
 	echo "VRAM:$memoryvideo"
 fi
 

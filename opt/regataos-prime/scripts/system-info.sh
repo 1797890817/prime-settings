@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 3;
+sleep 5;
 
 # Check system language
 language=$(locale | grep LANG)

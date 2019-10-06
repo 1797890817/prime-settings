@@ -72,6 +72,13 @@
 			<li id="buttom-click" onclick="open_popup();">
 				<div class="text-app run-tests">Executar testes com a GPU dedicada</div><span class='info-item run-tests-info'>Rode simples teste com OpenGL ou Vulkan</span>
 			</li>
+			<li id="freesync-toggle">
+				<div class="text-app">Radeon FreeSync</div><div class="switch__container">
+					<input id="switch-shadow-freesync" class="switch switch--shadow-freesync" type="checkbox" onclick="freesync();">
+					<label for="switch-shadow-freesync"></label></div><div class="switch__container">
+					<input id="switch-shadow2-freesync" class="switch switch--shadow2-freesync" type="checkbox" onclick="freesync();">
+					<label for="switch-shadow2-freesync"></label></div><span class='freesync-on'>FreeSync ativado</span><span class='freesync-off'>FreeSync desativado</span>
+			</li>
 		</ul>
 	</div>
 

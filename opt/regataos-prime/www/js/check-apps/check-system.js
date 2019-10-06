@@ -7,7 +7,7 @@ function notify_nv_driver(){
 	});
 }
 
-// nvidia driver not supported
+// hardware not supported
 function notify_hw(){
 	const exec = require('child_process').exec;
 	var comando = "echo not supported > /tmp/regataos-prime/hardware-notify.txt";
@@ -18,7 +18,18 @@ function notify_hw(){
 
 // Check system
 function check_system() {
-	const fs = require('fs');
+const fs = require('fs');
+
+// Check freesync
+fs.access('/tmp/regataos-prime/freesync-supported.txt', (err) => {
+if (!err) {
+console.error('myfile already exists');
+	$("#freesync-toggle").css("display", "block")
+return;
+} else {
+	$("#freesync-toggle").css("display", "none")
+}
+});
 
 // Check Prime support
 fs.access('/tmp/regataos-prime/use-hybrid-graphics.txt', (err) => {
@@ -59,6 +70,7 @@ console.error('myfile already exists');
 		$("#use-nvidia-click").css("display", "none")
 	}
 	});
+
 return;
 } else {
 	$("#primeon").css("display", "none")

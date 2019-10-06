@@ -1,0 +1,39 @@
+#!/bin/bash
+
+sleep 5;
+
+# Check FreeSync
+#Check nvidia driver
+if test ! -e /usr/bin/nvidia-xconfig ; then
+
+vrr_capable=$(xrandr --props | grep vrr_capable)
+if [[ $vrr_capable == *"1"* ]]; then
+
+	echo "freesync is supported" > /tmp/regataos-prime/freesync-supported.txt
+
+	if test -e /tmp/regataos-prime/freesync-on.txt ; then
+		bash -x /opt/regataos-prime/scripts/freesync on
+	else
+		bash -x /opt/regataos-prime/scripts/freesync off
+	fi
+
+else
+
+	freesync_capable=$(xrandr --props | grep freesync_capable)
+	if [[ $freesync_capable == *"1"* ]]; then
+
+		echo "freesync is supported" > /tmp/regataos-prime/freesync-supported.txt
+
+		if test -e /tmp/regataos-prime/freesync-on.txt ; then
+			bash -x /opt/regataos-prime/scripts/freesync on
+		else
+			bash -x /opt/regataos-prime/scripts/freesync off
+		fi
+	else
+		rm -f "/tmp/regataos-prime/freesync-supported.txt"
+		rm -f "/tmp/regataos-prime/freesync-on.txt"
+	fi
+
+fi
+
+fi

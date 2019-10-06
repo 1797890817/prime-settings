@@ -50,3 +50,24 @@ function set_renderer_buttom() {
 	}
 	});
 }
+
+// freesync
+function freesync_buttom() {
+	const fs = require('fs');
+	fs.access('/tmp/regataos-prime/freesync-on.txt', (err) => {
+	if (!err) {
+		console.error('myfile already exists');
+		$(".switch--shadow2-freesync + label").css("display", "none")
+		$(".switch--shadow-freesync + label").css("display", "block")
+		$(".freesync-off").css("display", "none")
+		$(".freesync-on").css("display", "block")
+		dgpu_support();
+	return;
+	} else {
+		$(".switch--shadow2-freesync + label").css("display", "block")
+		$(".switch--shadow-freesync + label").css("display", "none")
+		$(".freesync-off").css("display", "block")
+		$(".freesync-on").css("display", "none")
+	}
+	});
+}

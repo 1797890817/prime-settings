@@ -8,6 +8,9 @@ check_system();
 reverse_prime_buttom();
 set_renderer_buttom();
 
+// FreeSync BUTTOM
+freesync_buttom();
+
 // GAMES
 //steam
 steam_buttom();
