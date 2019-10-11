@@ -198,7 +198,7 @@ fi
 
 # Capture Mesa version and driver
 #Identify NVIDIA driver version
-mesaversion=$(glxinfo | grep "OpenGL" | grep "OpenGL version string" | cut -d " " -f 6-)
+mesaversion=$(glxinfo | grep "OpenGL" | grep "OpenGL version string" | cut -d " " -f 6- | sed 's/Profile) Mesa //')
 
 #Identify driver for Mesa
 mesadriver=$(inxi -Gx | grep "driver")
