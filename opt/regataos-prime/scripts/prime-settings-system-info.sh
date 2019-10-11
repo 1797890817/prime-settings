@@ -43,7 +43,8 @@ sed -i "s,oshere,$osname," /opt/regataos-prime/www/css/style-system/prime-settin
 # Capture iGPU
 #Identify iGPU
 if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
-	igpuname=$(inxi -G | egrep -i "Card-1|Device-1" | cut -d":" -f 3- | cut -d":" -f 1 | sed 's/ driver//' | sed 's/ Intel/Intel/')
+	igpu=$(glxinfo | grep "renderer string" | cut -d":" -f 2-)
+	igpuname=$(echo $igpu | sed 's/Mesa DRI Intel(R) //' | cut -d"(" -f -1)
 	echo "iGPU: $igpuname"
 
 	#Pass the information to CSS
@@ -54,49 +55,60 @@ fi
 #Identify dGPU
 if test -e /tmp/regataos-prime/use-hybrid-graphics.txt ; then
 
-dgpuname=$(inxi -G | egrep -i "Card-2|Device-2")
+dgpu=$(inxi -G | egrep -i "Card-2|Device-2")
 
-if [[ $dgpuname == *"AMD"* ]]; then
+if [[ $dgpu == *"AMD"* ]]; then
 
-	kmsg=$(echo $dgpuname | cut -d] -f 2- | cut -d " " -f 2-)
-	echo "dGPU: AMD $kmsg"
-
-	#Pass the information to CSS
-	sed -i "s.dgpuhere.AMD $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
-
-elif [[ $dgpuname == *"ATI"* ]]; then
-
-	kmsg=$(echo $dgpuname | cut -d] -f 2-)
-	echo "dGPU: AMD $kmsg"
+	dgpuinfo=$(glxinfo | grep "renderer string" | cut -d":" -f 2-)
+	dgpuname=$(echo $dgpuinfo | sed 's/AMD //' | cut -d"(" -f -1)
+	echo "dGPU: AMD $dgpuname"
 
 	#Pass the information to CSS
-	sed -i "s.dgpuhere.AMD $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+	sed -i "s.dgpuhere.AMD $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
 
-elif [[ $dgpuname == *"NVIDIA"* ]]; then
+elif [[ $dgpu == *"ATI"* ]]; then
+
+	dgpuinfo=$(glxinfo | grep "renderer string" | cut -d":" -f 2-)
+	dgpuname=$(echo $dgpuinfo | sed 's/AMD //' | cut -d"(" -f -1)
+	echo "dGPU: AMD $dgpuname"
+
+	#Pass the information to CSS
+	sed -i "s.dgpuhere.AMD $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+
+elif [[ $dgpu == *"Radeon"* ]]; then
+
+	dgpuinfo=$(glxinfo | grep "renderer string" | cut -d":" -f 2-)
+	dgpuname=$(echo $dgpuinfo | sed 's/AMD //' | cut -d"(" -f -1)
+	echo "dGPU: AMD $dgpuname"
+
+	#Pass the information to CSS
+	sed -i "s.dgpuhere.AMD $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+
+elif [[ $dgpu == *"NVIDIA"* ]]; then
 
 	if test -e /usr/bin/nvidia-xconfig ; then
-		kmsg=$(nvidia-smi --query-gpu=name --format=csv,noheader)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(nvidia-smi --query-gpu=name --format=csv,noheader)
 	else
-		kmsg=$(echo $dgpuname | cut -d: -f 3-)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(echo $dgpu | cut -d: -f 3-)
 	fi
 
-	#Pass the information to CSS
-	sed -i "s.dgpuhere.NVIDIA $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+	echo "dGPU: NVIDIA $dgpuname"
 
-elif [[ $dgpuname == *"GeForce"* ]]; then
+	#Pass the information to CSS
+	sed -i "s.dgpuhere.NVIDIA $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+
+elif [[ $dgpu == *"GeForce"* ]]; then
 
 	if test -e /usr/bin/nvidia-xconfig ; then
-		kmsg=$(nvidia-smi --query-gpu=name --format=csv,noheader)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(nvidia-smi --query-gpu=name --format=csv,noheader)
 	else
-		kmsg=$(echo $dgpuname | cut -d: -f 3-)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(echo $dgpu | cut -d: -f 3-)
 	fi
 
+	echo "dGPU: NVIDIA $dgpuname"
+
 	#Pass the information to CSS
-	sed -i "s.dgpuhere.NVIDIA $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+	sed -i "s.dgpuhere.NVIDIA $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
 
 else
 	echo "Not detected graphics"
@@ -104,49 +116,60 @@ fi
 
 else
 
-dgpuname=$(inxi -G | egrep -i "Card|Device")
+dgpu=$(inxi -G | egrep -i "Card|Device")
 
-if [[ $dgpuname == *"AMD"* ]]; then
+if [[ $dgpu == *"AMD"* ]]; then
 
-	kmsg=$(echo $dgpuname | cut -d] -f 2- | cut -d " " -f 2-)
-	echo "dGPU: AMD $kmsg"
-
-	#Pass the information to CSS
-	sed -i "s.dgpuhere.AMD $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
-
-elif [[ $dgpuname == *"ATI"* ]]; then
-
-	kmsg=$(echo $dgpuname | cut -d] -f 2-)
-	echo "dGPU: AMD $kmsg"
+	dgpuinfo=$(glxinfo | grep "renderer string" | cut -d":" -f 2-)
+	dgpuname=$(echo $dgpuinfo | sed 's/AMD //' | cut -d"(" -f -1)
+	echo "dGPU: AMD $dgpuname"
 
 	#Pass the information to CSS
-	sed -i "s.dgpuhere.AMD $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+	sed -i "s.dgpuhere.AMD $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
 
-elif [[ $dgpuname == *"NVIDIA"* ]]; then
+elif [[ $dgpu == *"ATI"* ]]; then
+
+	dgpuinfo=$(glxinfo | grep "renderer string" | cut -d":" -f 2-)
+	dgpuname=$(echo $dgpuinfo | sed 's/AMD //' | cut -d"(" -f -1)
+	echo "dGPU: AMD $dgpuname"
+
+	#Pass the information to CSS
+	sed -i "s.dgpuhere.AMD $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+
+elif [[ $dgpu == *"Radeon"* ]]; then
+
+	dgpuinfo=$(glxinfo | grep "renderer string" | cut -d":" -f 2-)
+	dgpuname=$(echo $dgpuinfo | sed 's/AMD //' | cut -d"(" -f -1)
+	echo "dGPU: AMD $dgpuname"
+
+	#Pass the information to CSS
+	sed -i "s.dgpuhere.AMD $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+
+elif [[ $dgpu == *"NVIDIA"* ]]; then
 
 	if test -e /usr/bin/nvidia-xconfig ; then
-		kmsg=$(nvidia-smi --query-gpu=name --format=csv,noheader)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(nvidia-smi --query-gpu=name --format=csv,noheader)
 	else
-		kmsg=$(echo $dgpuname | cut -d: -f 3-)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(echo $dgpu | cut -d: -f 3-)
 	fi
 
-	#Pass the information to CSS
-	sed -i "s.dgpuhere.NVIDIA $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+	echo "dGPU: NVIDIA $dgpuname"
 
-elif [[ $dgpuname == *"GeForce"* ]]; then
+	#Pass the information to CSS
+	sed -i "s.dgpuhere.NVIDIA $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+
+elif [[ $dgpu == *"GeForce"* ]]; then
 
 	if test -e /usr/bin/nvidia-xconfig ; then
-		kmsg=$(nvidia-smi --query-gpu=name --format=csv,noheader)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(nvidia-smi --query-gpu=name --format=csv,noheader)
 	else
-		kmsg=$(echo $dgpuname | cut -d: -f 3-)
-		echo "dGPU: NVIDIA $kmsg"
+		dgpuname=$(echo $dgpu | cut -d: -f 3-)
 	fi
 
+	echo "dGPU: NVIDIA $dgpuname"
+
 	#Pass the information to CSS
-	sed -i "s.dgpuhere.NVIDIA $kmsg." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
+	sed -i "s.dgpuhere.NVIDIA $dgpuname." /opt/regataos-prime/www/css/style-system/prime-settings-system-info.css
 
 else
 	echo "Not detected graphics"
